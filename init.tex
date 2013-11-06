@@ -1,0 +1,118 @@
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+
+\usepackage{blindtext}
+\usepackage[ampersand]{easylist}
+\usepackage{fancyhdr}
+
+\usepackage[xindy,toc]{glossaries}
+\usepackage[font={small,it}]{caption}
+\usepackage{tocloft}
+%\usepackage[options]{natbib}
+\usepackage[numbers]{natbib} 
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\usepackage[dutch]{babel}
+\selectlanguage{dutch}
+
+\usepackage[left=1.7in]{geometry} % Required to change the page size to A4
+\geometry{a4paper} % Set the page size to be A4 as opposed to the default US Letter
+
+\usepackage{graphicx} % Required for including pictures
+
+\usepackage{float} % Allows putting an [H] in \begin{figure} to specify the exact location of the figure
+\usepackage{wrapfig} % Allows in-line images such as the example fish picture
+
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+
+\linespread{1.2} % Line spacing
+
+
+
+\graphicspath{{./img/}} % Specifies the directory where pictures are stored
+
+
+\usepackage{listings}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{textcomp}
+
+\definecolor{javared}{rgb}{0.6,0,0} % for strings
+\definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comments
+\definecolor{javapurple}{rgb}{0.5,0,0.35} % keywords
+\definecolor{javadocblue}{rgb}{0.25,0.35,0.75} % javadoc
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9} % javadoc
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+ 
+\lstset{
+	language=Java,
+	basicstyle=\scriptsize,
+	keywordstyle=\color{javapurple}\bfseries,
+	stringstyle=\color{javared},
+	commentstyle=\color{javagreen},
+	morecomment=[s][\color{javadocblue}]{/**}{*/},
+	backgroundcolor=\color{lbcolor},
+	numbers=left,
+	numberstyle=\color{black},
+	stepnumber=1,
+	numbersep=10pt,
+	tabsize=2,
+	showspaces=false,
+	showstringspaces=false
+	breaklines=true
+}
+
+
+
+\usepackage[compact]{titlesec}
+\usepackage{pdfpages}
+
+\setlength\aftertitleunit{\baselineskip}
+
+
+
+\fancypagestyle{plain}{}
+
+
+
+\newlength\titleindent
+\setlength\titleindent{2cm}
+
+\pretocmd{\paragraph}{\stepcounter{subsection}}{}{}
+\pretocmd{\subparagraph}{\stepcounter{subsubsection}}{}{}
+
+\titleformat{\chapter}[block]
+  {\normalfont\huge\bfseries}{\llap{\parbox{\titleindent}{\thechapter\hfill}}}{0pt}{}
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{\llap{\parbox{\titleindent}{\thesection\hfill}}}{0em}{}
+
+\titleformat{\subsection}
+  {\normalfont\large}{\llap{\parbox{\titleindent}{}}}{0em}{\bfseries}
+
+\titleformat{\subsubsection}
+  {\normalfont\normalsize}{\llap{\parbox{\titleindent}{\thesubsubsection}}}{0em}{\bfseries}
+
+\titleformat{\paragraph}[runin]
+  {\normalfont\large}{\llap{\parbox{\titleindent}{\thesubsection\hfill}}}{0em}{}
+
+\titleformat{\subparagraph}[runin]
+  {\normalfont\normalsize}{\llap{\parbox{\titleindent}{\thesubsubsection\hfill}}}{0em}{}
+
+\titlespacing*{\chapter}{0pt}{0pt}{20pt}
+\titlespacing*{\subsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{0em}
+\titlespacing*{\subparagraph}{0pt}{3.25ex plus 1ex minus .2ex}{0em}
+
+\setcounter{tocdepth}{1}
+\cftsetindents{chapter}{0in}{0.5in}
+\cftsetindents{section}{0in}{0.5in}

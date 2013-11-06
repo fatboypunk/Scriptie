@@ -1,0 +1,208 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Afstudeer scriptie
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[a4paper,12pt,oneside]{report} 
+% Default font size is 12pt, it can be changed here
+
+\input{init}
+\input{glosseries}
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	Heading
+%----------------------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.0pt}
+\headheight = 54pt
+ 
+\lhead{\includegraphics[width=0.4\linewidth]{finan_logo.eps}}
+\rhead{\includegraphics[width=0.4\linewidth]{hanze_logo.png}}
+
+
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+\oddsidemargin 1cm
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Dopenrightefines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+
+\textsc{\LARGE Hanzehogeschool}\\[1.0cm] % Name of your university/college
+
+\textsc{\large \textit{"Onder titel"} }\\[0.5cm] % Major heading such as course name
+
+
+\HRule \\[0.4cm]
+{ \huge \bfseries Afstudeer scriptie}\\[0.4cm] % Title
+\HRule \\[6cm]
+
+
+
+\includegraphics[width=\linewidth]{finan_logo.eps}\\
+\today, Zwolle
+\end{titlepage}
+
+\large
+\emph{Auteur:}\\
+Erwin Oldenkamp\\
+ \textsc{282472} \\
+Opleiding: Informatica \\
+
+
+
+\emph{Stagedocent:}\\
+Henkjan Hekman\\
+Hanzehogeschool Groningen \\
+
+
+
+\emph{Stagebedrijf:}\\
+    Topicus Finan\\
+	Wouter van der Meulen Kunee\\
+	Koggelaan 3A\\
+	8017 JH, Zwolle
+
+
+\pagenumbering{gobble}
+
+%----------------------------------------------------------------------------------------
+%	Woordvooraf
+%----------------------------------------------------------------------------------------
+\chapter*{Woord vooraf}
+\lipsum[1]
+
+%----------------------------------------------------------------------------------------
+%	Samenvatting
+%----------------------------------------------------------------------------------------
+\chapter*{Samenvatting}
+\lipsum[1]
+
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	Index
+%----------------------------------------------------------------------------------------
+\newpage
+\renewcommand*\contentsname{Inhoud}
+\tableofcontents
+\cleardoublepage 
+\pagenumbering{arabic}
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	Inleiding
+%----------------------------------------------------------------------------------------
+
+\chapter{Inleiding} 
+Inleiding
+
+%----------------------------------------------------------------------------------------
+%	Topicus Finan BV
+%----------------------------------------------------------------------------------------
+
+\section{Topicus Finan BV} 
+Topicus Finan BV is een organisatie die oplossingen biedt voor de ondersteuning van financiële analyses.
+Finan is marktleider op het gebied van software voor financiële en niet-financiële verantwoordingsstromen (waaronder credit rating toepassingen) en biedt SaaS oplossingen op het gebied van klantspecifieke berichtenportalen en financiële front-, mid- en backoffice applicaties. 
+Topicus Finan BV bestaat uit 3 afdelingen, Accountancy, Banking en Retail Banking. 
+
+\subsection{Accountancy}
+\lipsum[1]
+\subsection{Banking}
+\lipsum[1]
+\subsection{Retail Banking}
+Retail Banking houdt zich bezig met het automatiseren van financiële processen. 
+Sinds 2008 is Wehkamp.nl een van de grootste klanten van de afdeling Retail Banking.
+Het Finan Retail Banking systeem bevat een hoop informatie met betrekking tot de klanten van een leverancier van betalingsfaciliteiten. 
+Het systeem bestaat uit twee applicaties, CAS en IRIS. 
+
+CAS is een crediteuren en debiteuren administratie systeem. 
+In dit systeem kan alles geautomatiseerd worden qua debiteuren en crediteuren.
+IRIS is een geautomatiseerd debiteuren dossier. 
+Met dit systeem kan de servicedesk klanten te woord staan die vragen of opmerkingen hebben over de financiële afwerking. 
+
+
+
+
+\subsection{Organisatiestructuur}
+\lipsum[2]
+
+\subsection{De primaire processen}
+\lipsum[3]
+
+
+\section{Probleemstelling}
+\lipsum[4]
+
+\section{Inhoud van dit rapport}
+\lipsum[5]
+
+\chapter{Plan van aanpak}
+\lipsum[6-7]
+
+%----------------------------------------------------------------------------------------
+%	Keuze platform
+%----------------------------------------------------------------------------------------
+
+\chapter{Keuze platform}
+\lipsum[8]
+\section{Criteria}
+\lipsum[9]
+
+\section{Uiteindelijke keuze}
+\lipsum[10]
+
+
+
+%----------------------------------------------------------------------------------------
+%	CONCLUSION
+%----------------------------------------------------------------------------------------
+
+\chapter{Conclusie}
+\lipsum[11-14]
+
+
+
+
+\appendix
+%----------------------------------------------------------------------------------------
+%	Persoonlijke ontwikkeling
+%----------------------------------------------------------------------------------------
+\chapter{Persoonlijke ontwikkeling}
+\lipsum[1]
+
+%----------------------------------------------------------------------------------------
+%	woordenlijst en bronnen
+%----------------------------------------------------------------------------------------
+\newpage
+
+\printglossary
+
+
+\renewcommand{\bibname}{Bronvermeldingen}
+\bibliographystyle{plain}
+\bibliography{bron}
+\nocite{*}
+
+%----------------------------------------------------------------------------------------
+
+
+
+\end{document}
