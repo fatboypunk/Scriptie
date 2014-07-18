@@ -210,18 +210,33 @@ Een groot verschil tussen de eerder versiebeheersystemen en Git is hoe ze code e
 \subsection{Branches}
 Elke wijzeging die toegevoegd wordt bij een VCS is een commit. Alle commits zijn stukjes code die op elkaar volgen, bij meerdere commits komt er als het ware een lijn van commits. Branches zijn aftakkingen van de reguliere lijn (master branch) aan commits. Een branch wordt gemaakt met het geven van een naam, deze naam is een beschrijving van wat de wijzegingen gaan doen, een bug-fix of de naam van de functie die in deze branch wordt toegevoegd. De commits in deze branch zijn ook alleen hier zichtbaar en te gebruiken totdat deze branch samengevoegd wordt met de reguliere lijn aan commits, mergen genoemd.
 
-Het maken van branches is een goede manier om mee te werken, omdat de master branch blijft werken en pas wanneer een branch voltooid is die wijzigingen erbij komen. Zo raakt de master branch niet vervuild met versies die maar half werken of nog getest moeten worden maar gebeurd dat al in de branch. Met branches kan er ook tegelijk aan een nieuwe functie van de applicatie gewerkt worden en aan een bug in de code. Wanneer er een bug gemeld wordt in de applicatie kan de ontwikkelaar naar de master branch gaan en vanaf daar een nieuwe branch aanmaken om de bug te maken. Wanneer deze bug gemaakt is kan het getest worden en daarna op de master branch gezet zodat het direct opgeleverd kan worden.
+Het maken van branches is een goede manier om mee te werken, omdat de master branch blijft werken en pas wanneer een branch voltooid is die wijzigingen erbij komen. Zo raakt de master branch niet vervuild met versies die maar half werken of nog getest moeten worden maar gebeurd dat al in de branch. Met branches kan er ook tegelijk aan een nieuwe functie van de applicatie gewerkt worden en aan een bug in de code. Wanneer er een bug gemeld wordt in de applicatie kan de ontwikkelaar naar de master branch gaan en vanaf daar een nieuwe branch aanmaken om de bug te maken. Wanneer deze bug gemaakt is kan het getest worden en daarna op de master branch gezet zodat het direct opgeleverd kan worden. Omdat Git voornamelijk lokaal werkt is het eenvoudig om een branch aan te maken om iets te proberen, mocht het niet lukken dan kan de branch wegegooit worden en heeft niemand er last van. 
 
 Tussen Git en oudere versiebeheersystemen is er een groot verschil in het maken en gebruiken van branches. In oudere versiebeheersystemen kost het veel tijd en moeite om een branch aan te maken, aangezien het hier vaak betekend dat alle code in de repsoitry verplaatst moet worden naar een nieuwe map. Dit kost tijd wat afhankelijk is van de grote van een repository. 
 
 In git is het maken van een branch niet meer dan het wegschrijven van 41 karakters. Doordat het maken van een branch in Git niet meer is dan een verwijzing naar een vorige commit. Dit wordt gedaan in een SHA-1 checksum van 40 karakters die bij de laatste commit hoorden en een enter. Hier hoeven dus verder geen bestanden voor gekopieerd of verplaatst te worden en hoeft er bij Git niet gewacht te worden om een branch aan te maken. 
 
+
 \subsection{Mergen}
+Een groot probleem voor het gebruik van branches bij de oude versiebeheersystemen is het mergen. Hier werd het mergen gedaan door het nieuwe en het oude bestand tegenover elkaar te zetten en dan te bekijken wat er veranderd moet worden. Maar als er tussendoor al een keer gemerged is naar de master branch wordt het lastiger om te bepalen welke stukken code er kan blijven staan en welke code plaats moet maken.
+
+Bij Git gaat het mergen van branches een stuk gemakkelijker, omdat git de meta informatie gebruikt die bijgehouden wordt bij elke commit. Wanneer er tussentijds iets gemerged wordt op de masterbranch houd git bij waar dit gebeurd. Git weet ook van alle files wat waar is aangepast of toegevoegd door dit bij te houden kan git zelf een groot deel van het mergen zelf doen maar maakt het ook gemakkelijker om een te kiezen welke stukken code er over moet blijven. 
+
+Doordat het in Git zo eenvoudig is om branches te maken en te mergen is het bij Git ook gebruikelijk om voor alle nieuwe functies een aparte branch aan te maken. Dit in tegenstelling tot de oudere versiebeheersystemen waar de ontwikkelaars erg opzien tegen het maken van een nieuwe branch of het mergen ervan.
+
+\subsection{Keuze}
+Uiteindelijk is de keuze van versiebeheersystemen gevallen op Git, het was de enige DVCS waar al enige ervaring mee was, waardoor het snel ingezet en gebruikt kon worden. Het was vrij duidelijk dat Git vele voordelen had tegenover oudere versiebeheersystemen zoals SVN en CVS, waar binnen nidaros ook angstig naar het mergen gekeken werd door ervaringen met deze systemen.
+
+\section{Server tools}
+Er zijn veel mogelijkheden om code te plaatsen, de bekensten zijn Github en Bitbucket. Ze bieden veel mogelijkheden voor opensource development maar hebben ook opties om tegen betaling een private repository aan te maken. Deze code komt dan op de servers te staan van Github en Bitbucket, maar zijn alleen toeganklijk op basis van een uitnodiging van de beheerder. 
+
+Binnen Nidaros was de wens er om de code intern te houen en niet op servers te zetten van Github of Bitbucket. Maar beiden hebben ze ook een optie om de code op de eigen servers te hosten. Voor Github is dit Github Enteprise en bij Bitbucket is dit Stash. Beide biederen ze veel meer opties dan alleen het toevoegen van code en de wijzegingen daar van. Er zit wel veel verschil in het prijskaartje voor beiden bij Nidaros zou er voor Github Enteprise bedraag van 5000 dollar betaald moeten worden waar dat bij stash maar 10 dollar is. 
+
+Aangezien Stash een product is van Attlassian en Nidaros hier al veel producten van gebruikte die hier naadloos op aansluiten was het uiteindelijk een gemakkelijke keuze om voor Stash te gaan.
 
 
 
-\section{Tools}
-Stash - github - bitbucket - gitlab - github enteprise
+
 
 
 \chapter{Ontwerp keuzes}
