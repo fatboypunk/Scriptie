@@ -234,11 +234,22 @@ Naast alleen een applicatie op Android of op iOS is het ook mogelijk om in een k
 
 Alle drie claimen ze dat er door maar een taal te gebruiken een applicatie gebowd kan worden die op alle grote mobiele platformen gedraaid kan worden. Bij Xamarin claimen ze dat door de applicatie te compileren de code net zo snel gaat als wanneer het native gebouwd zou worden. Bij Titanium doen ze hier nog een schepje bovenop en zeggen ze dat de code sneller uitgevoerd wordt dan bij een native app.
 
-Phonegap is een heel ander verhaal. Ze claimen niet dat het sneller of net zo snel gaat als een native app. Dit komt doordat ze applicaties laten maken door middel van HTML5, CSS3 en JavaScript. JavaScript is de grote boosdoener voor de snelheid op mobiele applicaties. Dit komt door de hardware die gebruikt wordt op telefoons en de garbage collector van JavaScript.
+\label{phonegap} Phonegap is een heel ander verhaal. Ze claimen niet dat het sneller of net zo snel gaat als een native app. Dit komt doordat ze applicaties laten maken door middel van HTML5, CSS3 en JavaScript. JavaScript is de grote boosdoener voor de snelheid op mobiele applicaties. Dit komt door de hardware die gebruikt wordt op telefoons en de garbage collector van JavaScript.
 
 Door het gebruik van HTML5 en CSS3 in Phonegap heeft de app niet de style die een native app zal hebben, waar de terug knop of de menu knop van android zit ten opzichte van iOS is een heel verschil en bij Phonegap wordt ook dat in een keer gebouwd. Dit is wel aan te passen voor beide, maar dan zijn er toch weer twee verschillende projecten waar aan gewerkt wordt. 
 
 Met de snelheid van JavaScript op mobiele apparaten blijft naast de uitstraling op de app ook het gevoel achter. Bij het wisselen tussen pagina's in de app zelf merkt de gebruiker dat het net allemaal even langzamer gaat en bij het drukken op een knop is er niet het gevoel dat er direct wat gebeurd. Voor een app is dit funest voor de gebruikerservaring, zeker wanneer de gebruiker het gevoel heeft dat er alleen maar simpele dingen gebeuren in de app. Het is ook niet voor niks dat grote bedrijven die erg willen inzetten op een mobiele app, zoals facebook, misschien wel zijn begonnen aan JavaScript, maar er toch vanaf zijn gestapt.
+
+Xamarin en Titanium claimen dat ze de uitstraling geven van native apps en net zo snel werkt, omdat het gecompileerd is. Daarnaast geven ze aan dat tijdens het maken van de app de API van de het platform aangesproken kan worden, daardoor is het mogelijk om hetzelfde te kunnen doen wat native apps ook kunnen. In Xamarin wordt ontwikkeld met C\# en wordt naar elk platform apart gecompileerd. Terwijl bij Titanium JavaScript code gebruikt wordt. Wat titanium met deze code doet voordat het als een app op de smartphone terecht komt is niet duidelijk, mocht het JavaScript blijven zal er altijd snelheidsverlies blijven zoals ook het geval is bij phonegap.
+
+In alle gevallen moeten de ontwikkelaar rekening houden met elk platform waar de app op moet komen. Van elk device moet de taal bekend zijn en hoe de look en feel van elke app moet zijn. Voor elk platform is zijn hier aparte richtlijnen opgesteld die er voor zorgen dat de app intuitief aanvoelen op het desbetreffende platform. Hierdoor moeten er met multiplatform frameworks altijd n+1 talen en systemen geleerd worden. Waar 'n' voor het aantal platforms staat en de '+1' het framework betekend. Door het werken op een ander framework betekent het ook dat er nog een onderdeel bij komt waar ook bugs zit. Deze frameworks Bedienen ook minder mensen dan de Android SDK of de iOS SDK en bij problemen binnen het framework zijn er daarom een stuk minder problemen uitgelegd en bij een vraag zijn er minder mensen die daarmee kunnen helpen.
+
+\subsection{Android}
+
+
+\subsection{iOS}
+
+
 
 
 
