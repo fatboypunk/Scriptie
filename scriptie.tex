@@ -224,6 +224,11 @@ Bij Git gaat het mergen van branches een stuk gemakkelijker, omdat git de meta i
 
 Doordat het in Git zo eenvoudig is om branches te maken en te mergen is het bij Git ook gebruikelijk om voor alle nieuwe functies een aparte branch aan te maken. Dit in tegenstelling tot de oudere versiebeheersystemen waar de ontwikkelaars erg opzien tegen het maken van een nieuwe branch of het mergen ervan.
 
+\subsection{Integriteit}
+Door het gebruik van SHA-1 voor elke commit in Git en de verwijzingen die git met SHA-1 bij houdt, blijft de integriteit van de code behouden. Git maakt de SHA-1 op basis van de content die wordt aangemaakt en geeft dit als naam van de de commit. Bij een volgende commit die gemaakt wordt komt er een verwijzing naar de laatste commit die gedaan met deze SHA-1. In een Git een worden blobs opgeslagen wat de momentopnames zijn van de files die op dat moment zijn veranderd. Deze blobs hebbben als naam een SHA-1 code. De eigenlijke naam van deze files wordt bijgehouden in de tree, dit is een bestand waarin staat wat er opgeslagen is (de blob) de SHA-1 code die daar bij hoort en de eigenlijke naam van de file. Het bestand van de commit bedraagt een verwijsing naar de tree met de SHA-1 code daarvan, de naam van de auteur, de gene die het commit en een bericht wat bij elke commit meegegeven wordt. Hierdoor ontstaan er tenminste drie files, afhankelijk van het aantal blobs kunnen dat er meer zijn, en alle files zijn aan elkaar gekoppeld door middel van de SHA-1 code.
+
+Door het gebruik van SHA-1 in Git blijft de integriteit altijd behouden, omdat Git hierdoor weet weet welke bestanden er horen te volgen. Wanneer iemand de code probeert te veranderen in eerdere commits zal Git hier zelf achter komen en waarschuwingen voor geven.
+
 \subsection{Keuze}
 Uiteindelijk is de keuze van versiebeheersystemen gevallen op Git, het was de enige DVCS waar al enige ervaring mee was, waardoor het snel ingezet en gebruikt kon worden. Het was vrij duidelijk dat Git vele voordelen had tegenover oudere versiebeheersystemen zoals SVN en CVS, waar binnen nidaros ook angstig naar het mergen gekeken werd door ervaringen met deze systemen.
 
