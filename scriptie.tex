@@ -245,15 +245,26 @@ Xamarin en Titanium claimen dat ze de uitstraling geven van native apps en net z
 In alle gevallen moeten de ontwikkelaar rekening houden met elk platform waar de app op moet komen. Van elk device moet de taal bekend zijn en hoe de look en feel van elke app moet zijn. Voor elk platform is zijn hier aparte richtlijnen opgesteld die er voor zorgen dat de app intuitief aanvoelen op het desbetreffende platform. Hierdoor moeten er met multiplatform frameworks altijd n+1 talen en systemen geleerd worden. Waar 'n' voor het aantal platforms staat en de '+1' het framework betekend. Door het werken op een ander framework betekent het ook dat er nog een onderdeel bij komt waar ook bugs zit. Deze frameworks Bedienen ook minder mensen dan de Android SDK of de iOS SDK en bij problemen binnen het framework zijn er daarom een stuk minder problemen uitgelegd en bij een vraag zijn er minder mensen die daarmee kunnen helpen.
 
 \subsection{Android}
+Android heeft het grootste marktaandeel op het gebied van smartphones. Maarliefst 80\% van de mobiele apparaten werkt op Android. Hierdoor kan bij het maken van een native app op Android kan erdirect een groot gedeelte van de mensen bereikt worden. Wel moet er rekening gehouden worden met de verschillende devices. Er zijn veel verschillende soorten devices waar Android het besturingsysteem van is en omdat het op het ene aparaat goed werkt betekent nog niet dat het op een ander apparaat met Android ook goed zal werken. Op alle mobiele apparaten werkt alles net even anders en moet voor veel dingen die gebeuren in de app aparte code geschreven worden.
+
+Het werken aan een Android project is relatief goedkoop, er moet 25 euro betaald worden bij het inschrijven van een app in de playstore. Het ontwikkelen kan in principe op alle computers. Er hoeft dus geen extra hardware aangeschaft te worden, tenzij het op een specefiek apparaat getest moet worden. De taal om applicaties te schrijven voor Android is Java. Eeen voordeel hiervan is dat veel mensen bekend zijn met de taal en veel mensen met weinig moeite en scholing kunnen beginnen aan het ontwikkelen van een taal in Java.
 
 
 \subsection{iOS}
+iOS is na Android de grootste speler op de markt, maar heeft slechts 13\% van de markt in handen. iOS draait alleen op de apparaten die van Apple zelf zijn waardoor er een naadloze integratie is tussen de hardware en software op alle apparaten. Hierdoor zijn applicaties die geschreven worden voor het ene apparaat ook goed voor het andere apparaat. Er zijn specefieke gevallen waar dit minder is, maar met de simulator die Apple biedt is de code te testen voor alle apparaten, en kan er veel gedaan worden zonder een echt apparaat in bezit te hebben.
 
-
-
+Voor het ontwikkelen in iOS is er een Mac systeem nodig waar Xcode op draait. Dit maakt de onwtikkeling duurder voor iOS wanneer er nog geen Mac aanwezig is. De applicaties worden geschreven in Objective-C een taal die op weinig andere plekken wordt gebruikt dan het maken van applicaties voor iOS en OS X. Het aantal mensen dat Objective-C kan is aanzienlijk lager dan Java, maar er zijn veel mensen die apps voor iOS en OS X maken.
 
 
 \subsection{Keuze}
+Uiteindelijk is de keuze gevallen op iOS. De oplossing van multiplatform leek weinig te beloven, zeker wanneer er in de toekomst nog functies bij moesten komen als OCR is het niet zeker of dit zou kunnen met Xamarin of Titanium. Bij Phonegap zou het al lastig worden om een aantal bonnetjes in het geheugd op te slaan door de garbage collector en het geheugen wat per applicatie gebruikt mag worden. 
+
+Voor deze applicatie moest er een goede look en feel komen waar de gebruikers makkelijk in konden stappen en snel hun weg in konden vinden. Dit zou teniet worden gedaan door het gebruik van JavaScript maar zelfs met de oplossing van Xamarin is het moeilijk om een juiste manier te vinden in waar de knoppen terecht komen en hoe de bewegingen zouden moeten gaan. 
+
+De keuze voor iOS werd gemaakt, omdat het maken van applicaties heirvoor zekerder aanvoelde dan voor Android. Bij Android mag dan wel een grotere markt zijn, maar het aantal devices waar dit goed op werkt zou net zo klein of kleiner kunnen zijn dan die van iOS. Door de verschillende grotes en hardware specefieke oplossingen van alle fabrikanten binnen Android is het lastig om app te maken, die goed gebruikt kan worden door alle Android gebruikers.
+
+Voor Nidaros is de ScanjeBon de eerste mobiele applicatie die gebouwd wordt binnen het bedrijf. Nidaros kan hiermee zijn portfolio uitbreiden en laten zien aan de huidige klanten en toekomstige klanten. De meeste klanten en voornamelijk de leidinggevenden daarvan zijn in het bezit van een iPhone of iPad waar iOS op draait. Door de applicatie op dit besturingssysteem te bouwen denk Nidaros er uiteindelijk meer aan over te houden dan deze app. Ze kunnen de app laten zien als iets wat ze kunnen maken en daardoor meer opdrachten binnen halen.
+
 
 \section{Communicatie}
 
