@@ -2,6 +2,8 @@
 \usepackage[T1]{fontenc}
 \usepackage{palatino}
 
+\usepackage{listings}
+
 \usepackage{blindtext}
 \usepackage[ampersand]{easylist}
 \usepackage{fancyhdr}
@@ -52,6 +54,7 @@
 \definecolor{lbcolor}{rgb}{0.9,0.9,0.9} % javadoc
 \definecolor{darkblue}{rgb}{0.0,0.0,0.6}
 \definecolor{cyan}{rgb}{0.0,0.6,0.6}
+\definecolor{code-block}{rgb}{0.97,0.97,0.97}
  
 \lstset{
 	language=Java,
@@ -81,7 +84,6 @@
 
 
 \fancypagestyle{plain}{}
-
 
 
 \newlength\titleindent
@@ -116,3 +118,14 @@
 \setcounter{tocdepth}{1}
 \cftsetindents{chapter}{0in}{0.5in}
 \cftsetindents{section}{0in}{0.5in}
+
+\lstdefinestyle{code-block}{
+  language=bash,
+  basicstyle=\small\ttfamily,
+  linewidth=0.9\linewidth,
+  breaklines=true
+}
+
+\lstset{
+   backgroundcolor=\color{blue!20}
+}

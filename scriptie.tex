@@ -240,14 +240,23 @@ Simple Object Access Protocol (SOAP) is een protocol waarmee berichten tussen sy
 
 
 \subsection{REST}
-Representational state transfer (REST) is een webarchitectuur die de basis vormt voor het world wide web (www). REST
+Representational state transfer (REST) is een webarchitectuur die de basis vormt voor het world wide web (www). REST gebruikt voornamelijk JavaScript Object Notation(JSON) of XML voor de data overdracht.
 
-REST werkt erg simpel. Het gebruikt create read update en delete (CRUD) voor zijn acties, via http wordt dit aangeroepen met POST, GET, PUT en DELETE. Wat  
+REST werkt erg simpel. Het gebruikt create, read, update en delete (CRUD) voor zijn acties, via http wordt dit aangeroepen met POST, GET, PUT en DELETE. REST verstuurd zijn CRUD opdrachten naar een Uniform Resource Identifier (URI). Door de combinatie hiervan weet de server welke actie ondernomen moet worden en wat er vervolgens moet gebeuren.
+\newline
 
+Bij een GET op de URI \colorbox{code-block}{\lstinline[style=code-block]|http://www.scanjebon.nl/receipts|} worden alle bonnen verwacht waar de gebruiker bij mag. De data van deze bonnen worden dan in JSON of XML teruggestuurd. Bij een GET op de URI \colorbox{code-block}{\lstinline[style=code-block]|http://www.scanjebon.nl/receipts/1|} wordt de data van het bonnetje verwacht die als 'id' 1 heeft. Naast de data die teruggegeven wordt krijgt de client een HTTP code 200 terug
 
-\subsection{Keuze}
+Wanneer er data opgehaald moet worden voor alle bonnetjes van een specefieke gebruiker kan dit door \colorbox{code-block}{\lstinline[style=code-block]|http://www.scanjebon.nl/users/1/receipts|}. Er wordt eerst aangegeven van welke gebruiker de data nodig is, met behulp van \colorbox{code-block}{\lstinline[style=code-block]|/users/1|} is het duidelijk dat er van de gebruiker met het id 1 data nodig is. Door \colorbox{code-block}{\lstinline[style=code-block]|/receipts|} erachter te plaatsen is het duidelijk dat van die gebruiker data van de bonnen gevraagd wordt.
 
+Bij een POST wordt er geen data opgehaald maar opgeslagen in het framework. Vervoglens wordt de data wel teruggestuurd, omdat bij het aanmaken op de server nog het een en ander is veranderd. Zo krijgt een resource pas een id op het moment dat deze wordt aangemaakt op de server en de client heeft die id nodig om later die resource te kunnen ophalen, aanpassen of verwijderen. Het aanmaken van een resource wordt gedaan door een POST te versturen naar een URI van een resource zoals \colorbox{code-block}{\lstinline[style=code-block]|www.scanjebon.nl/receipts|}. Bij de post worden de gegevens in de vorm van JSON of XML meegestuurd. De server controlleert dit en slaat het vervolgens op en stuurt diezelfde data terug met extra informatie die op de server is aangemaakt. Bij het slagen van de POST wordt de HTTP 200 code meegestuurd.
 
+Om de data aan te passen die is opgeslagen kan een PUT uitgevoerd worden op dat object. Deze put wordt gedaan op een resource met id als \colorbox{code-block}{\lstinline[style=code-block]|www.scanjebon.nl/receipts/1|}. Met deze actie wordt via JSON of XML meegestuurd wat het huidige object moet worden. Bij een PUT wordt dezelfde data via JSON of XML meegestuurd als bij een POST maar in tegenstelling tot een POST krijg de PUT geen data meer terug. De client zal weten dat de opdracht gelukt is wanneer er de HTTP 204 code teruggestuurd wordt.
+
+Als laatste van de CRUD opdrachten blijft de DELETE over. De DELETE wordt uitgevoerd op een recourse met een id \colorbox{code-block}{\lstinline[style=code-block]|www.scanjebon.nl/receipts/1|} en verwijderd het object met dat id. Bij de uitvoering van een DELETE worden geen gegevens meegestuurd en krijgt dat doorgaans niet teruggestuurd. Wanneer het gelukt is krijgt de client een HTTP 200 code terug wanneer het gelukt is en er data wordt meegestuurd. Wanneer er geen data wordt teruggestuurd maar de opdracht wel gelukt is krijgt de response de 204 HTTP code terug. 
+
+\begin{lstlisting}
+\end{lstlisting}
 
 
 \section{Frameworks}
