@@ -6,7 +6,7 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass[a4paper,11pt,oneside]{report} 
+\documentclass[a4paper,11pt,oneside]{report}
 % Default font size is 12pt, it can be changed here
 
 \input{init}
@@ -21,7 +21,7 @@
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{0.0pt}
 \headheight = 54pt
- 
+
 \lhead{\includegraphics[width=0.4\linewidth]{nidaros-logo.png}}
 \rhead{\includegraphics[width=0.4\linewidth]{hanze_logo.png}}
 
@@ -101,7 +101,7 @@ Hanzehogeschool Groningen \\
 \newpage
 \renewcommand*\contentsname{Inhoud}
 \tableofcontents
-\cleardoublepage 
+\cleardoublepage
 \pagenumbering{arabic}
 
 
@@ -111,15 +111,15 @@ Hanzehogeschool Groningen \\
 %	Inleiding
 %----------------------------------------------------------------------------------------
 
-\chapter{Inleiding} 
+\chapter{Inleiding}
 Inleiding
 
 %----------------------------------------------------------------------------------------
 %	Nidaros
 %----------------------------------------------------------------------------------------
 
-\section{Nidaros} 
-Nidaros is een bedrijf dat adviseert en ondersteuning biedt bij IT-gerelateerde bedrijfsprocessen. Het doel van Nidaros is het stimuleren van bedrijfsprocessen, het informeren van procesverantwoordelijkheden en het bewust worden van wat IT kan toevoegen aan bedrijven en organisaties. Nidaros is een klein bedrijf met ongeveer twaalf werknemers, die op veel markten in de IT bezig is. Het biedt advies op het gebied van softwareontwikkeling en geven advies op basis van testmanagement en op basis van een informatieanalyse. Nidaros maakt zelf websites en software voor klanten en voeren optimalisaties door in bestaande websites. Daarnaast doet ze ook een stuk ICT-beheer binnen bedrijven, en voeren ze reparaties van computers en iPhones uit. 
+\section{Nidaros}
+Nidaros is een bedrijf dat adviseert en ondersteuning biedt bij IT-gerelateerde bedrijfsprocessen. Het doel van Nidaros is het stimuleren van bedrijfsprocessen, het informeren van procesverantwoordelijkheden en het bewust worden van wat IT kan toevoegen aan bedrijven en organisaties. Nidaros is een klein bedrijf met ongeveer twaalf werknemers, die op veel markten in de IT bezig is. Het biedt advies op het gebied van softwareontwikkeling en geven advies op basis van testmanagement en op basis van een informatieanalyse. Nidaros maakt zelf websites en software voor klanten en voeren optimalisaties door in bestaande websites. Daarnaast doet ze ook een stuk ICT-beheer binnen bedrijven, en voeren ze reparaties van computers en iPhones uit.
 
 \subsection{Consultancy}
 In de Consultancy tak van Nidaros worden werknemers gedetacheerd naar andere bedrijven om daar te helpen met het inbrengen van externe systemen, en voor het testen van systemen.
@@ -146,12 +146,12 @@ Voor de mensen die hier last van hebben wordt de ScanjeBon app ontwikkeld. Met d
 \chapter{Plan van aanpak}
 De looptijd van het project bedraagt twintig weken. Deze twintig weken zal verdeeld worden over vier fases zoals beschreven in RUP. De eerste fase is Inception, in deze fase wordt er voor gezorgd dat iedereen betreffende het project hetzelfde beeld krijgt over het project. De tweede fase, Elaboration genaamd, wordt gebruikt als de eerste iteratie.
 
-Zo wordt er een werkend product opgeleverd, maar worden ook dingen gedaan als het opzetten van de ontwikkelomgeving en het versiebeheersysteem. De derde fase, Construction, is waar het ontwikkelen gebeurd. Hier zal het overgrote deel van de Scanjebon app gemaakt worden. Dit wordt gedaan in iteraties en na elke iteratie wordt de app getoond aan de deelnemende stakeholders. 
+Zo wordt er een werkend product opgeleverd, maar worden ook dingen gedaan als het opzetten van de ontwikkelomgeving en het versiebeheersysteem. De derde fase, Construction, is waar het ontwikkelen gebeurd. Hier zal het overgrote deel van de Scanjebon app gemaakt worden. Dit wordt gedaan in iteraties en na elke iteratie wordt de app getoond aan de deelnemende stakeholders.
 
 De laatste fase is de Transition, de Scanjebon app is hier klaar voor gebruik en kan in de markt gezet worden. Daarnaast zal hier de overdracht plaats vinden van de broncode, de documentatie en de ontwikkelomgeving. De fases zullen er samen voor zorgen dat er een Scanjebon app voor minimaal één platform gemaakt zal worden met daarnaast een ontwikkelomgeving waar een volgende ontwikkelaar mee verder kan. De planning staat als gantt chart in \ref{chap:planning}.
 \begin{description}
 Overdracht app en broncode.Overdracht app en broncode.
-  \item[Fase 1: Inception] 
+  \item[Fase 1: Inception]
     \item \mbox{}
     \begin{itemize}
       \item Projectgoedkeuring.
@@ -171,13 +171,13 @@ Overdracht app en broncode.Overdracht app en broncode.
     Bouwen app:
     \begin{itemize}
       \item Gegevens invullen en meesturen
-      \item Bonnen bekijken in een lijst en apart 
+      \item Bonnen bekijken in een lijst en apart
       \item Gegevens automatisch uit de foto halen d.m.v. OCR
       \item Ontwikkeling REST API:
       \item Opzetten framework
       \item REST infrastructuur opzetten.
     \end{itemize}
-  \item[Fase 4: Transition] 
+  \item[Fase 4: Transition]
     \item \mbox{}
     \begin{itemize}
       \item Advies taal platform
@@ -198,7 +198,7 @@ Tijdens het bouwen van de applicatie is er gebruikt van het versiebheersysteem G
 Voor de keuze van van versiebeheersystemen zijn er twee opties een Centralized Version Control System (CVCS) of een Distributed Version Control System (DVCS). Voor CVCS is de bekenste optie Subversion (SVN) en voor de DVCS zijn Git en Mercurial de grootste opties. Aan beide kanten worden er versies bijgehouden van de code die gescrheven wordt en het is bij allebei mogelijk om de code te delen tussen verschillende manieren, \ldots. Maar er is wel een verschil hoe dat gebeurd en dat verschil is ook merkbaar in het gebruik en heeft zijn voor en nadelen.
 
 \subsection{Servers} \label{Servers}
-Om de code te kunnen delen bij een CVCS is er een server nodig. Op deze server worden alle versies bijgehouden, wat erg handig is want zo kan iedereen bijhouden wat er met de code gebeurd en weet iedereen waar een ander mee bezig is. Het grote probleem met een CVCS server is dat als de server stuk gaat en de data op de server verloren gaat is alle code en vooral de geschiedenis van de code ook weg. Wat dan overblijft is alle code die de mensen op dat moment lokaal op de werkplek hebben staan en geen hele geschiedenis van alle code meer. Bij het werken met CVCS-en wordt er altijd maar een deel van de code naar de locale machine gekopieerd. Wanneer de server voor een tijd offline gaat kan niemand hun code meer delen, opslaan of verder gaan met een ander stuk. Als er een aftakking van de code gemaakt wordt zodat daar nieuwe functies aan toegevoegd kunnen worden heeft de gebruiker alleen toegang tot die code. De code van de nieuwe functies die een collega op dat moment maakt blijven alleen op de server staan. 
+Om de code te kunnen delen bij een CVCS is er een server nodig. Op deze server worden alle versies bijgehouden, wat erg handig is want zo kan iedereen bijhouden wat er met de code gebeurd en weet iedereen waar een ander mee bezig is. Het grote probleem met een CVCS server is dat als de server stuk gaat en de data op de server verloren gaat is alle code en vooral de geschiedenis van de code ook weg. Wat dan overblijft is alle code die de mensen op dat moment lokaal op de werkplek hebben staan en geen hele geschiedenis van alle code meer. Bij het werken met CVCS-en wordt er altijd maar een deel van de code naar de locale machine gekopieerd. Wanneer de server voor een tijd offline gaat kan niemand hun code meer delen, opslaan of verder gaan met een ander stuk. Als er een aftakking van de code gemaakt wordt zodat daar nieuwe functies aan toegevoegd kunnen worden heeft de gebruiker alleen toegang tot die code. De code van de nieuwe functies die een collega op dat moment maakt blijven alleen op de server staan.
 
 Bij DVCS is een zelfde opzet mogelijk, er kan een server neergezet worden waar alle code beschikbaar op is en waar wijzegingen bekend blijven. Net als bij de CVCS kan hier de code ingezien worden door iedereen en kan iedereen zien waar een ander mee bezig is. Mocht er bij een DVCS de server stuk gaan of offline, dan onstaat hier wel een verschil met de CVCS. Bij een DVCS staat staat op elke werkplek alle code en wijzegingen. Wijzegingen kunnen opgeslagen worden zonder verbinding met het internet, dit betekent niet alleen dat er door gewerkt kan worden tijdens het offline gaan van de server maar ook wanneer er gewerkt wordt vanuit een trein zonder internet verbinding. Het stukgaan van de server betekent bij DVCS niet dat er geen code meer gedeeld kan worden onderling, want iedereen kan als server fungeren en van iedereen kan de code opgehaald worden. Elke werkplek is hierdoor een backup van de server en van elkaar.
 Dit kan ook gedaan worden omdat bij een DVCS alle code opgehaald wordt van de server en niet alleen het stukje waar de ontwikkelaar op dat moment mee bezig is. Dit betekent dat als de ontwikkelaar een stuk bij wil dragen aan een stuk code waar hij niet bij betrokken was hij dit in een handomdraai kan doen
@@ -212,9 +212,9 @@ Elke wijzeging die toegevoegd wordt bij een VCS is een commit. Alle commits zijn
 
 Het maken van branches is een goede manier om mee te werken, omdat de master branch blijft werken en pas wanneer een branch voltooid is die wijzigingen erbij komen. Zo raakt de master branch niet vervuild met versies die maar half werken of nog getest moeten worden maar gebeurd dat al in de branch. Met branches kan er ook tegelijk aan een nieuwe functie van de applicatie gewerkt worden en aan een bug in de code. Wanneer er een bug gemeld wordt in de applicatie kan de ontwikkelaar naar de master branch gaan en vanaf daar een nieuwe branch aanmaken om de bug te maken. Wanneer deze bug gemaakt is kan het getest worden en daarna op de master branch gezet zodat het direct opgeleverd kan worden.
 
-Tussen Git en oudere versiebeheersystemen is er een groot verschil in het maken en gebruiken van branches. In oudere versiebeheersystemen kost het veel tijd en moeite om een branch aan te maken, aangezien het hier vaak betekend dat alle code in de repsoitry verplaatst moet worden naar een nieuwe map. Dit kost tijd wat afhankelijk is van de grote van een repository. 
+Tussen Git en oudere versiebeheersystemen is er een groot verschil in het maken en gebruiken van branches. In oudere versiebeheersystemen kost het veel tijd en moeite om een branch aan te maken, aangezien het hier vaak betekend dat alle code in de repsoitry verplaatst moet worden naar een nieuwe map. Dit kost tijd wat afhankelijk is van de grote van een repository.
 
-In git is het maken van een branch niet meer dan het wegschrijven van 41 karakters. Doordat het maken van een branch in Git niet meer is dan een verwijzing naar een vorige commit. Dit wordt gedaan in een SHA-1 checksum van 40 karakters die bij de laatste commit hoorden en een enter. Hier hoeven dus verder geen bestanden voor gekopieerd of verplaatst te worden en hoeft er bij Git niet gewacht te worden om een branch aan te maken. 
+In git is het maken van een branch niet meer dan het wegschrijven van 41 karakters. Doordat het maken van een branch in Git niet meer is dan een verwijzing naar een vorige commit. Dit wordt gedaan in een SHA-1 checksum van 40 karakters die bij de laatste commit hoorden en een enter. Hier hoeven dus verder geen bestanden voor gekopieerd of verplaatst te worden en hoeft er bij Git niet gewacht te worden om een branch aan te maken.
 
 \subsection{Mergen}
 
@@ -233,21 +233,99 @@ Voordat er begonnen kon worden aan het project moest eerst duidelijk zijn op wel
 \subsection{Keuze}
 
 \section{Communicatie}
-De communicatie tussen de app en de server gebeurd over het internet, om de communicatie goed te laten verlopen moet er afgesproken worden wat de wijze van deze comminucatie is en hoe die zal verlopen. Deze afspraken zitten gebonden in een protocol. Voor het versturen van gegevens tussen de client en de server zijn er twee bekende protocollen REST en SOAP en hieronder zal worden uitgelegd wat beiden inhouden, waarmee het verschil duidelijk wordt gemaakt tussen de protocollen. En welke keuze er uiteindelijk is gemaakt.
+De communicatie tussen de app en de server gebeurt over het internet, om de communicatie goed te laten verlopen moet er afgesproken worden wat de wijze van deze comminucatie is en hoe die zal verlopen. Deze afspraken zitten gebonden in een protocol. Voor het versturen van gegevens tussen de client en de server zijn er twee bekende protocollen REST en SOAP en hieronder zal worden uitgelegd wat beiden inhouden, waarmee het verschil duidelijk wordt gemaakt tussen de protocollen. En welke keuze er uiteindelijk is gemaakt.
 
 \subsection{SOAP}
-Simple Object Access Protocol (SOAP) is een protocol waarmee berichten tussen systemen verstuurd worden. SOAP is bedacht voor Microsoft en wordt tegenwoordig door veel bedrijven en software oplossingen gebruikt. SOAP bestaat uit drie onderdelen, Het eerste deel beschrijft wat er in het bericht staat en hoe het verwerkt moet worden. Het tweede deel is een set met regels wat aangeeft 
-
 
 \subsection{REST}
-Representational state transfer (REST) is een webarchitectuur die de basis vormt voor het world wide web (www). REST
+Representational state transfer (REST) is een webarchitectuur die de basis vormt
+voor het world wide web (www). REST gebruikt voornamelijk JavaScript Object
+Notation(JSON) of XML voor de data overdracht.
 
-REST werkt erg simpel. Het gebruikt create read update en delete (CRUD) voor zijn acties, via http wordt dit aangeroepen met POST, GET, PUT en DELETE. Wat  
+REST werkt erg simpel. Het gebruikt create, read, update en delete (CRUD) voor
+zijn acties, via http wordt dit aangeroepen met POST, GET, PUT en DELETE. REST
+verstuurd zijn CRUD opdrachten naar een Uniform Resource Identifier (URI). Door
+de combinatie hiervan weet de server welke actie ondernomen moet worden en wat
+er vervolgens moet gebeuren.
+\newline
+
+Bij een GET op de URI
+\lstinline[style=code-block]|http://www.scanjebon.nl/receipts|
+worden alle bonnen verwacht waar de gebruiker bij mag. De data van deze bonnen
+worden dan in JSON of XML teruggestuurd. Bij een GET op de URI
+\lstinline[style=code-block]|http://www.scanjebon.nl/receipts/1|
+wordt de data van het bonnetje verwacht die als 'id' 1 heeft. Naast de data die
+teruggegeven wordt krijgt de client een HTTP code 200 terug
+
+Wanneer er data opgehaald moet worden voor alle bonnetjes van een specefieke
+gebruiker kan dit door
+\lstinline[style=code-block]|http://www.scanjebon.nl/users/1/receipts| aan te
+roepen.
+Er wordt eerst aangegeven van welke gebruiker de data nodig is, met behulp van
+\lstinline[style=code-block]|/users/1| is het duidelijk
+dat er van de gebruiker met het id 1 data nodig is. Door
+\lstinline[style=code-block]|/receipts| erachter te
+plaatsen is het duidelijk dat van die gebruiker data van de bonnen gevraagd
+wordt.
+
+Bij een POST wordt er geen data opgehaald maar opgeslagen in het framework.
+Vervoglens wordt de data wel teruggestuurd, omdat bij het aanmaken op de server
+nog het een en ander is veranderd. Zo krijgt een resource pas een id op het
+moment dat deze wordt aangemaakt op de server en de client heeft die id nodig om
+later die resource te kunnen ophalen, aanpassen of verwijderen. Het aanmaken van
+een resource wordt gedaan door een POST te versturen naar een URI van een
+resource zoals
+\lstinline[style=code-block]|www.scanjebon.nl/receipts|.
+Bij de post worden de gegevens in de vorm van JSON of XML meegestuurd. De server
+controlleert dit en slaat het vervolgens op en stuurt diezelfde data terug met
+extra informatie die op de server is aangemaakt. Bij het slagen van de POST
+wordt de HTTP 200 code meegestuurd.
+
+Om de data aan te passen die is opgeslagen kan er een PUT of PATCH uitgevoerd
+worden op een object. Deze PUT of PATCH wordt gedaan op een resource met id als
+\lstinline[style=code-block]|www.scanjebon.nl/receipts/1|.
+Bij een PUT actie wordt via JSON of XML meegestuurd wat het huidige object moet
+worden. Dit is waar het verschil wordt gemaakt met een PATCH waar alleen het
+geen wat veranderd moet worden wordt meegestuurd. In tegenstelling tot een POST
+krijgen de PUT en PATCH geen data meer terug. De client zal weten dat de
+opdracht gelukt is wanneer er de HTTP 204 code teruggestuurd wordt.
+
+Als laatste van de CRUD opdrachten blijft de DELETE over. De DELETE wordt
+uitgevoerd op een recourse met een id
+\lstinline[style=code-block]|www.scanjebon.nl/receipts/1|
+en verwijderd het object met dat id. Bij de uitvoering van een DELETE worden
+geen gegevens meegestuurd en krijgt dat doorgaans niet teruggestuurd. Wanneer
+het gelukt is krijgt de client een HTTP 200 code terug wanneer het gelukt is en
+er data wordt meegestuurd. Wanneer er geen data wordt teruggestuurd maar de
+opdracht wel gelukt is krijgt de response de 204 HTTP code terug.
+
+Wanneer er fouten optreden tijdens de uitvoering van CRUD methodes op endpoints
+word dat opgemerkt door de HTTP status die wordt teruggestuurd. Wanneer er een
+aanvraag wordt gedaan op een endpoint die niet bestaat zal er een 404
+teruggestuurd worden dat betekend dat het endpoint niet gevonden is. Voor fouten
+worden veelal codes in de 400 en 500 range gebruikt.
+\footnote{HTTP 1.1 statuscodes en hun betekenis: \newline
+\url{http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html}}
 
 
 \subsection{Keuze}
+Uiteindelijk is SOAP erg uitgebreid en kan het alle kanten op geconfigureerd
+worden. Maar het is erg gecompliceerd, het configureren van SOAP binnen een
+applicatie vergt veel werk. Daarnaast werkt SOAP uitsluitend met XML en binnen
+iOS zijn daar nauwlijks API's op library's voor die daar mee werken. Dit zou
+betekenen dat alle parsen van alle binnenkomende gegevens op iOS zelf geparst
+moet worden. Daarnaast werken er maar heel weinig mensen die iOS development
+doen met SOAP waardoor ondersteuning op internet heel mager is.
 
+Het werken met REST is voor iOS erg aan te raden. Bijna iedereen werkt hier mee
+en er zijn veel library's te vinden die hier iets mee kunnen. De API van iOS kan
+zelf goed overweg met JSON wat het direct naar gegevenstypes van Objective-C om
+kan zetten. Door dit alles is er ook gekozen om REST te gebruiken met JSON om
+dat REST erg simpel te maken is in tegenstelling tot SOAP en het voordeel van
+JSON ten opzichte van XML.
 
+\begin{lstlisting}
+\end{lstlisting}
 
 
 \section{Frameworks}
