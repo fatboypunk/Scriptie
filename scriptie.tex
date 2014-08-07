@@ -233,9 +233,46 @@ Voordat er begonnen kon worden aan het project moest eerst duidelijk zijn op wel
 \subsection{Keuze}
 
 \section{Communicatie}
-De communicatie tussen de app en de server gebeurt over het internet, om de communicatie goed te laten verlopen moet er afgesproken worden wat de wijze van deze comminucatie is en hoe die zal verlopen. Deze afspraken zitten gebonden in een protocol. Voor het versturen van gegevens tussen de client en de server zijn er twee bekende protocollen REST en SOAP en hieronder zal worden uitgelegd wat beiden inhouden, waarmee het verschil duidelijk wordt gemaakt tussen de protocollen. En welke keuze er uiteindelijk is gemaakt.
+De communicatie tussen de app en de server gebeurt over het internet, om de
+communicatie goed te laten verlopen moet er afgesproken worden wat de wijze van
+deze comminucatie is en hoe die zal verlopen. Deze afspraken zitten gebonden in
+een protocol. Voor het versturen van gegevens tussen de client en de server zijn
+er twee bekende protocollen REST en SOAP. Hieronder zal worden uitgelegd wat
+beiden inhouden, waarmee het verschil duidelijk wordt gemaakt tussen de
+protocollen. En welke keuze er uiteindelijk is gemaakt.
 
 \subsection{SOAP}
+Simple Object Access Protocol (SOAP) is een protocol waarmee berichten tussen
+systemen verstuurd worden. SOAP is bedacht voor Microsoft en wordt tegenwoordig
+door veel bedrijven en software oplossingen gebruikt. Het protocol bestaat uit
+drie onderdelen, Het eerste deel beschrijft wat er in het bericht staat en hoe
+het verwerkt moet worden. Het tweede deel is een set met regels wat aangeeft
+welke hoe de gegevens verwerkt worden op basis van de applicatie specefieke
+gegevenstypes. Het derde en laatste onderdeel is een afspraak voor het gebruik
+van remote procedure calls. Dit is hoe SOAP berichten verstuurd worden.
+
+SOAP gebruikt alleen XML om gegevens mee te versturen, maar dit kan wel over
+alle protocollen die gebruikt worden op het internet zoals: HTTP, SMTP en FTP.
+Het is gemaakt om oudere technologien te vervangen die niet goed werkten op het
+internet. Toen het gemaakt is werd er erg gelet op het mogelijk maken van
+uitbreidingen op het protocol, hierdoor zijn er veel uitbreidingen\footnotemark
+gemaakt die allemaal hun eigen doel hebben. Zo is er een uitbreiding die te
+maken heeft met beveiliging, een voor notificaties en een voor metadata.
+
+\footnotetext{Alle gespecificeerde SOAP uitbreidingen in 2007: \newline
+\url{https://www.innoq.com/soa/ws-standards/poster/innoQ\%20WS-Standards\%20Poster\%202007-02.pdf}}
+\begin{wrapfigure}{r}{0.5\textwidth}
+  \includegraphics[width=0.5\textwidth]{wsdl.png}
+  \caption{Voorbeeld van een WSDL bestand.}
+\end{wrapfigure}
+In SOAP wordt een Web Service Definition Language (WSDL) gebruikt om de de
+service te defini\"eren. De WSDL geeft aan hoe de hoe de service die gegeven
+wordt omgaat met SOAP berichten, de service die aangeeft welke endpoints er zijn
+om gegevens over te dragen of op te halen, de 'binding' die wordt gebruikt om
+het gebruik van portTypes te beschrijven en de portTypes zelf dat een groep van
+operaties defin\"ieerd. In een WSDL zit veel informatie en bij het juist
+configureren van een WSDL kan er code worden gegenereerd die communiceren aan de
+hand van de WSDL.
 
 \subsection{REST}
 Representational state transfer (REST) is een webarchitectuur die de basis vormt
