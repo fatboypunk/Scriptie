@@ -233,10 +233,131 @@ Voordat er begonnen kon worden aan het project moest eerst duidelijk zijn op wel
 \subsection{Keuze}
 
 \section{Communicatie}
+De communicatie tussen de app en de server gebeurd over het internet, om de communicatie goed te laten verlopen moet er afgesproken worden wat de wijze van deze comminucatie is en hoe die zal verlopen. Deze afspraken zitten gebonden in een protocol. Voor het versturen van gegevens tussen de client en de server zijn er twee bekende protocollen REST en SOAP en hieronder zal worden uitgelegd wat beiden inhouden, waarmee het verschil duidelijk wordt gemaakt tussen de protocollen. En welke keuze er uiteindelijk is gemaakt.
+
+\subsection{SOAP}
+Simple Object Access Protocol (SOAP) is een protocol waarmee berichten tussen systemen verstuurd worden. SOAP is bedacht voor Microsoft en wordt tegenwoordig door veel bedrijven en software oplossingen gebruikt. SOAP bestaat uit drie onderdelen, Het eerste deel beschrijft wat er in het bericht staat en hoe het verwerkt moet worden. Het tweede deel is een set met regels wat aangeeft 
+
+
+\subsection{REST}
+Representational state transfer (REST) is een webarchitectuur die de basis vormt voor het world wide web (www). REST gebruikt voornamelijk JavaScript Object Notation(JSON) of XML voor de data overdracht.
+
+REST werkt erg simpel. Het gebruikt create, read, update en delete (CRUD) voor zijn acties, via http wordt dit aangeroepen met POST, GET, PUT en DELETE. REST verstuurd zijn CRUD opdrachten naar een Uniform Resource Identifier (URI). Door de combinatie hiervan weet de server welke actie ondernomen moet worden en wat er vervolgens moet gebeuren.
+\newline
+
+Bij een GET op de URI \colorbox{code-block}{\lstinline[style=code-block]|http://www.scanjebon.nl/receipts|} worden alle bonnen verwacht waar de gebruiker bij mag. De data van deze bonnen worden dan in JSON of XML teruggestuurd. Bij een GET op de URI \colorbox{code-block}{\lstinline[style=code-block]|http://www.scanjebon.nl/receipts/1|} wordt de data van het bonnetje verwacht die als 'id' 1 heeft. Naast de data die teruggegeven wordt krijgt de client een HTTP code 200 terug
+
+Wanneer er data opgehaald moet worden voor alle bonnetjes van een specefieke gebruiker kan dit door \colorbox{code-block}{\lstinline[style=code-block]|http://www.scanjebon.nl/users/1/receipts|}. Er wordt eerst aangegeven van welke gebruiker de data nodig is, met behulp van \colorbox{code-block}{\lstinline[style=code-block]|/users/1|} is het duidelijk dat er van de gebruiker met het id 1 data nodig is. Door \colorbox{code-block}{\lstinline[style=code-block]|/receipts|} erachter te plaatsen is het duidelijk dat van die gebruiker data van de bonnen gevraagd wordt.
+
+Bij een POST wordt er geen data opgehaald maar opgeslagen in het framework. Vervoglens wordt de data wel teruggestuurd, omdat bij het aanmaken op de server nog het een en ander is veranderd. Zo krijgt een resource pas een id op het moment dat deze wordt aangemaakt op de server en de client heeft die id nodig om later die resource te kunnen ophalen, aanpassen of verwijderen. Het aanmaken van een resource wordt gedaan door een POST te versturen naar een URI van een resource zoals \colorbox{code-block}{\lstinline[style=code-block]|www.scanjebon.nl/receipts|}. Bij de post worden de gegevens in de vorm van JSON of XML meegestuurd. De server controlleert dit en slaat het vervolgens op en stuurt diezelfde data terug met extra informatie die op de server is aangemaakt. Bij het slagen van de POST wordt de HTTP 200 code meegestuurd.
+
+Om de data aan te passen die is opgeslagen kan een PUT uitgevoerd worden op dat object. Deze put wordt gedaan op een resource met id als \colorbox{code-block}{\lstinline[style=code-block]|www.scanjebon.nl/receipts/1|}. Met deze actie wordt via JSON of XML meegestuurd wat het huidige object moet worden. Bij een PUT wordt dezelfde data via JSON of XML meegestuurd als bij een POST maar in tegenstelling tot een POST krijg de PUT geen data meer terug. De client zal weten dat de opdracht gelukt is wanneer er de HTTP 204 code teruggestuurd wordt.
+
+Als laatste van de CRUD opdrachten blijft de DELETE over. De DELETE wordt uitgevoerd op een recourse met een id \colorbox{code-block}{\lstinline[style=code-block]|www.scanjebon.nl/receipts/1|} en verwijderd het object met dat id. Bij de uitvoering van een DELETE worden geen gegevens meegestuurd en krijgt dat doorgaans niet teruggestuurd. Wanneer het gelukt is krijgt de client een HTTP 200 code terug wanneer het gelukt is en er data wordt meegestuurd. Wanneer er geen data wordt teruggestuurd maar de opdracht wel gelukt is krijgt de response de 204 HTTP code terug. 
+
+\begin{lstlisting}
+\end{lstlisting}
+
 
 \section{Frameworks}
 
 \chapter{Implementatie}
+Voor de implementatie was een planning gemaakt, deze planning staat in
+\ref{chap:planning} omschreven. Hierin was duidelijk gemaakt welke features er
+wel en niet in zouden komen van te voren, maar er werd wel vanuit een agile
+omgeving begonnen met bouwen. De grote features van het systeem stonden van te
+voren al beschreven met MoSCoW rating. Deze features worden stap voor stap
+ingevoerd en na elkaar. Wanneer de ene feature af is kan er pas begonnen worden
+aan de volgende. Hierdoor blijft er ruimte open voor aanpassingen en wanneer er
+wijzigingen doorgevoerd moeten worden heeft het minder invloed op het geheel.
+
+\section{Stash}
+Als Git server is er voor Stash gekozen. Om de code bij te houden en de kunnen
+delen is de Git server geinstalleerd voor het daadwerkelijk bouwen van de
+applicatie. Voor de stash applicatie was er ruimte op een server van Nidaros,
+waartoe alleen toegang toe was via ssh. Stash werd geinstalleerd aan de hand van
+een handleiding die Atlassian op de website heeft staan.
+
+Het eerste wat op de server geinstalleerd moest worden was Git zelf en Java
+omdat Stash stash gemaakt is met Java en Git nodig heeft om te kunnen werken.
+Vervolgens kan de installer met een wget opgehaald worden. Na het ophalen van de
+installer kan daarin nog aangegeven worden in welke map stash geplaatst moet
+worden. Vervolgens wordt de installer gestart door het uit te voeren in de
+shell. De installer gaat nu verder op een webpagina die gehost wordt op poort
+7990. Deze poort moest eerst opengezet worden in de firewall voordat de pagina
+bereikt kon worden.
+
+Op de webpagina volgen een aantal instructies met welke database er gekozen moet
+worden en het maken van een admin account. Vervolgens wordt Stash geinstalleerd
+aan de hand van de gekozen instellingen. Daarna blijft Stash bereikbaar op de
+poort 7990. Na het installeren van stash is het direct verbonden met Jira. Jira
+is een software pakket dat net als Stash gemaakt wordt door Atlassian. Met Jira
+kunnen er issues en user stories bijgehouden worden. door de koppeling tussen
+Jira en Stash zijn de gebruikersnamen van stash dezelfde gebruikersnamen die in
+Jira gebruikt worden. Deze issues en user stories die in Jira worden aangemaakt
+kunnen ook gekoppeld worden aan de branches en commits die gemaakt worden in de
+stash repositories. Hierdoor kan er in Jira niet alleen bijgehouden worden welke
+issues en user stories er aangemaakt zijn, maar kan er daarnaast gezien worden
+in Jira hoeveel er momenteel gedaan is aan die issues en user stories.
+
+Na het installeren van Stash, het verbinden met Jira en vervolgens het inloggen
+kan er een project aangemaakt worden. Dit project heet ScanjeBon en in het
+project staan twee repositories iPhone en Laravel. Voor zowel het Laravel als
+het iPhone project werd vervogens een verwijzing gemaakt naar de betreffende
+repository als origin. Hiermee wordt elke keer als code gepushed wordt naar de
+server de juiste server bereikt en de juiste repository in die server. Dit wordt
+gedaan met \lstinline[style=code-block]|git remote add origin https://username@stash/scm/ScanjeBon/iPhone.git|
+waarbij \lstinline[style=code-block]|username| staat voor de gebruikersnaam en
+\lstinline[style=code-block]|stash| voor het ip en de poort waar stash zich
+bevind.
+
+Na het maken van deze instellingen is Git geconfigureerd, kan iedereen bij
+Stash, omdat Jira al geinstalleerd was binnen Nidaros en iedereen die dat nodig
+had daar al een account had.
+
+
+\section{Het begin}
+Het maken van de app was in het begin gedaan aan de hand colleges gegeven door
+Paul Hegarty deze colleges staan op videos online en werden gegeven op de
+universiteit van Stanford in de eerste colleges werd een basis gelegd om de
+infrastructuur van iOS te begrijpen. Xcode de IDE waarmee ontwikkeld wordt voor
+iOS werd uitgelegd en de taal Objective-C werd uitgelegd. In de colleges die
+daarop volgden werd Xcode er opnieuw bij gepakt om te beginnen met het
+ontwikkelen. Hoe nieuwe schermen aangemaakt kunnen worden en hoe vervolgens
+knoppen daarop werken en hoe aan die knoppen acties gehangen kunnen worden.
+
+
+Door het volgen van deze colleges werd snel een beeld geschept over hoe dingen
+werken in iOS en hoe dingen gemaakt kunnen worden. De basis was snel gelegd en
+er werd uitgeleged hoe met de iPhone foto's gemaakt en ingeladen kunnen worden.
+\begin{wrapfigure}{r}{0.3\textwidth}
+  \includegraphics[width=40mm]{add_photo.png}
+  \caption{Toevoegen van een foto}
+  \label{add_photo}
+\end{wrapfigure}
+Er werden twee knoppen op het scherm geplaatst \'e\'en met
+\lstinline[style=code-block]|Maak foto| en de andere met
+\lstinline[style=code-block]|Bestaande foto| zoals ook te zien is in
+figuur \ref{add_photo}. Na het klikken op een van de knoppen voert de aplicatie
+een code uit die de API van iOS aanspreekt. Hierna worden schermen getoond van
+iOS zelf die een foto laat maken als er op
+\lstinline[style=code-block]|Maak foto| is geklikt of een foto uit de
+mappenstructuur van de iPhone haalt als er op
+\lstinline[style=code-block]|Bestaande foto| is geklikt.
+
+Zodra een foto is gemaakt of opgehaald moet het getoont worden. Als eerst wordt
+dit gedaan op dit scherm zelf, omdat het daarvoor nog niet opgeslagen hoeft te
+worden. Om dit te doen moet er een ImageView naar het huidige scherm gesleept
+worden. Deze ImageView wordt vervolgens verbonden aan de code waardoor er een
+methode voor gecreeerd wordt daarna hoeft de foto alleen nog maar naar die
+methode gestuurd te worden en is die foto zichtbaar.
+\newline
+
+De gegevens die bij de bon horen zijn: het plaatje van de bon zelf, de datum
+waarop het gekocht is, de datum waarop de garantie afloopt, bij welke winkel het
+gekocht is en de foto van de bon zelf.
+
+
 
 
 
