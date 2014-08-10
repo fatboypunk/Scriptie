@@ -262,6 +262,67 @@ Als laatste van de CRUD opdrachten blijft de DELETE over. De DELETE wordt uitgev
 \section{Frameworks}
 
 \chapter{Implementatie}
+Voor de implementatie was een planning gemaakt, deze planning staat in
+\ref{chap:planning} omschreven. Hierin was duidelijk gemaakt welke features er
+wel en niet in zouden komen van te voren, maar er werd wel vanuit een agile
+omgeving begonnen met bouwen. De grote features van het systeem stonden van te
+voren al beschreven met MoSCoW rating. Deze features worden stap voor stap
+ingevoerd en na elkaar. Wanneer de ene feature af is kan er pas begonnen worden
+aan de volgende. Hierdoor blijft er ruimte open voor aanpassingen en wanneer er
+wijzigingen doorgevoerd moeten worden heeft het minder invloed op het geheel.
+
+\section{Stash}
+Als Git server is er voor Stash gekozen. Om de code bij te houden en de kunnen
+delen is de Git server geinstalleerd voor het daadwerkelijk bouwen van de
+applicatie. Voor de stash applicatie was er ruimte op een server van Nidaros,
+waartoe alleen toegang toe was via ssh. Stash werd geinstalleerd aan de hand van
+een handleiding die Atlassian op de website heeft staan.
+
+Het eerste wat op de server geinstalleerd moest worden was Git zelf en Java
+omdat Stash stash gemaakt is met Java en Git nodig heeft om te kunnen werken.
+Vervolgens kan de installer met een wget opgehaald worden. Na het ophalen van de
+installer kan daarin nog aangegeven worden in welke map stash geplaatst moet
+worden. Vervolgens wordt de installer gestart door het uit te voeren in de
+shell. De installer gaat nu verder op een webpagina die gehost wordt op poort
+7990. Deze poort moest eerst opengezet worden in de firewall voordat de pagina
+bereikt kon worden.
+
+Op de webpagina volgen een aantal instructies met welke database er gekozen moet
+worden en het maken van een admin account. Vervolgens wordt Stash geinstalleerd
+aan de hand van de gekozen instellingen. Daarna blijft Stash bereikbaar op de
+poort 7990. Na het installeren van stash is het direct verbonden met Jira. Jira
+is een software pakket dat net als Stash gemaakt wordt door Atlassian. Met Jira
+kunnen er issues en user stories bijgehouden worden. door de koppeling tussen
+Jira en Stash zijn de gebruikersnamen van stash dezelfde gebruikersnamen die in
+Jira gebruikt worden. Deze issues en user stories die in Jira worden aangemaakt
+kunnen ook gekoppeld worden aan de branches en commits die gemaakt worden in de
+stash repositories. Hierdoor kan er in Jira niet alleen bijgehouden worden welke
+issues en user stories er aangemaakt zijn, maar kan er daarnaast gezien worden
+in Jira hoeveel er momenteel gedaan is aan die issues en user stories.
+
+Na het installeren van Stash, het verbinden met Jira en vervolgens het inloggen
+kan er een project aangemaakt worden. Dit project heet ScanjeBon en in het
+project staan twee repositories iPhone en Laravel. Voor zowel het Laravel als
+het iPhone project werd vervogens een verwijzing gemaakt naar de betreffende
+repository als origin. Hiermee wordt elke keer als code gepushed wordt naar de
+server de juiste server bereikt en de juiste repository in die server. Dit wordt
+gedaan met \lstinline[style=code-block]|git remote add origin https://username@stash/scm/ScanjeBon/iPhone.git|
+waarbij \lstinline[style=code-block]|username| staat voor de gebruikersnaam en
+\lstinline[style=code-block]|stash| voor het ip en de poort waar stash zich
+bevind.
+
+Na het maken van deze instellingen is Git geconfigureerd, kan iedereen bij
+Stash, omdat Jira al geinstalleerd was binnen Nidaros en iedereen die dat nodig
+had daar al een account had.
+
+
+\section{Het begin}
+Het weergeven van de data van een bon was het eerste onderdeel wat gemaakt werd.
+De gegevens die bij de bon horen zijn: het plaatje van de bon zelf, de datum
+waarop het gekocht is, de datum waarop de garantie afloopt, bij welke winkel het
+gekocht is en de foto van de bon zelf.
+
+
 
 
 
