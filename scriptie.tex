@@ -317,7 +317,42 @@ had daar al een account had.
 
 
 \section{Het begin}
-Het weergeven van de data van een bon was het eerste onderdeel wat gemaakt werd.
+Het maken van de app was in het begin gedaan aan de hand colleges gegeven door
+Paul Hegarty deze colleges staan op videos online en werden gegeven op de
+universiteit van Stanford in de eerste colleges werd een basis gelegd om de
+infrastructuur van iOS te begrijpen. Xcode de IDE waarmee ontwikkeld wordt voor
+iOS werd uitgelegd en de taal Objective-C werd uitgelegd. In de colleges die
+daarop volgden werd Xcode er opnieuw bij gepakt om te beginnen met het
+ontwikkelen. Hoe nieuwe schermen aangemaakt kunnen worden en hoe vervolgens
+knoppen daarop werken en hoe aan die knoppen acties gehangen kunnen worden.
+
+
+Door het volgen van deze colleges werd snel een beeld geschept over hoe dingen
+werken in iOS en hoe dingen gemaakt kunnen worden. De basis was snel gelegd en
+er werd uitgeleged hoe met de iPhone foto's gemaakt en ingeladen kunnen worden.
+\begin{wrapfigure}{r}{0.3\textwidth}
+  \includegraphics[width=40mm]{add_photo.png}
+  \caption{Toevoegen van een foto}
+  \label{add_photo}
+\end{wrapfigure}
+Er werden twee knoppen op het scherm geplaatst \'e\'en met
+\lstinline[style=code-block]|Maak foto| en de andere met
+\lstinline[style=code-block]|Bestaande foto| zoals ook te zien is in
+figuur \ref{add_photo}. Na het klikken op een van de knoppen voert de aplicatie
+een code uit die de API van iOS aanspreekt. Hierna worden schermen getoond van
+iOS zelf die een foto laat maken als er op
+\lstinline[style=code-block]|Maak foto| is geklikt of een foto uit de
+mappenstructuur van de iPhone haalt als er op
+\lstinline[style=code-block]|Bestaande foto| is geklikt.
+
+Zodra een foto is gemaakt of opgehaald moet het getoont worden. Als eerst wordt
+dit gedaan op dit scherm zelf, omdat het daarvoor nog niet opgeslagen hoeft te
+worden. Om dit te doen moet er een ImageView naar het huidige scherm gesleept
+worden. Deze ImageView wordt vervolgens verbonden aan de code waardoor er een
+methode voor gecreeerd wordt daarna hoeft de foto alleen nog maar naar die
+methode gestuurd te worden en is die foto zichtbaar.
+\newline
+
 De gegevens die bij de bon horen zijn: het plaatje van de bon zelf, de datum
 waarop het gekocht is, de datum waarop de garantie afloopt, bij welke winkel het
 gekocht is en de foto van de bon zelf.
