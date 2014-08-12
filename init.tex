@@ -2,6 +2,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{palatino}
 
+
 \usepackage{blindtext}
 \usepackage[ampersand]{easylist}
 \usepackage{fancyhdr}
@@ -10,7 +11,10 @@
 \usepackage[font={small,it}]{caption}
 \usepackage{tocloft}
 %\usepackage[options]{natbib}
-\usepackage[numbers]{natbib} 
+\usepackage[numbers]{natbib}
+
+\usepackage[table,usenames,dvipsnames]{xcolor}
+\usepackage{tabularx}
 
 \usepackage{hyperref}
 \hypersetup{
@@ -42,7 +46,6 @@
 
 
 \usepackage{listings}
-\usepackage[usenames,dvipsnames]{xcolor}
 \usepackage{textcomp}
 
 \definecolor{javared}{rgb}{0.6,0,0} % for strings
@@ -52,7 +55,8 @@
 \definecolor{lbcolor}{rgb}{0.9,0.9,0.9} % javadoc
 \definecolor{darkblue}{rgb}{0.0,0.0,0.6}
 \definecolor{cyan}{rgb}{0.0,0.6,0.6}
- 
+\definecolor{Grey}{gray}{0.8}
+
 \lstset{
 	language=Java,
 	basicstyle=\scriptsize,
@@ -86,6 +90,8 @@
 
 \newlength\titleindent
 \setlength\titleindent{2cm}
+
+\newcolumntype{g}{>{\columncolor{Grey}}c}
 
 \pretocmd{\paragraph}{\stepcounter{subsection}}{}{}
 \pretocmd{\subparagraph}{\stepcounter{subsubsection}}{}{}

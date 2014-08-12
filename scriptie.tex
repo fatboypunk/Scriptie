@@ -236,6 +236,129 @@ Voordat er begonnen kon worden aan het project moest eerst duidelijk zijn op wel
 
 \section{Frameworks}
 
+\chapter{Architectuur}
+
+\section{Architecturele eisen}
+Dit onderdeel beschrijft de eisen die aan de software wordt gesteld bij het
+maken van belang zijn binnen de softwarearchitectuur.
+\subsection{Niet-functionele eisen}
+Deze niet-functionele requirements zijn van belang voor de architectuur van het te bouwen
+software.
+
+\begin{table}[h]
+\begin{tabular}{| l | p{10cm} |}
+\hline
+\rowcolor{lightgray}
+Naam                       & Architecturele relevatie \\
+\hline
+Doorlooptijd               & De applicatie wordt ontwikkeld tijdens de stage
+                             periode van de stagair, wat 20 weken bedraagt. \\
+                             \hline
+Beveiliging van verbinding & Voor het versturen van gegevens en het registreren
+                             en inloggen, is het van belang dat de verbinding
+                             waarover dit verstuurd wordt beveiligd is. \\
+                             \hline
+\end{tabular}
+\end{table}
+
+\subsection{Use Case View (functionele requirements)}
+Voor de architectuur zijn de volgende functionele requirements van belang.
+
+\begin{table}[h]
+\begin{tabular}{| l | p{8cm} | l |}
+\hline
+\rowcolor{lightgray}
+Naam & Architecturele relevatie  & Geaddreseerd in \\ \hline
+Foto maken of laden & De applicatie moet een ruimte hebben waar het foto's kan
+opslaan. tevens moet het de mogelijkheid hebben om de camera en de eerder
+gemaakte foto's te benaderen & \ref{}  \\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection{UC1: Foto maken of inladen} % (fold)
+\label{ssub:foto_maken_of_inladen}
+\begin{tabularx}{\linewidth}{| g | X |}
+  \hline
+  Naam      & UC1: Foto maken of inladen \\ \hline
+  Samenvatting  & De gebruiker is in het bezit van een nog niet opgeslagen bon
+en maakt hier een foto van of heeft deze foto al op zijn telefoon staan en haalt
+hem daar op. \\ \hline
+  Actoren     & Gebruiker \\ \hline
+  Aannames    & De gebruiker is ingelogd in de applicatie en heeft een nieuwe
+bon die hij in wil voeren. \\ \hline
+  Resultaat     & De gebruiker ziet het gemaakte of gekozen bonnetje staan onder
+de velden van de gegevens die hij kan invoeren of ingevoerd heeft.  \\ \hline
+  Beschrijving  & De gebruiker navigeert naar het scherm om een nieuwe bon te
+maken, heeft hij twee opties: Maak foto en Kies bestaande foto. Bij het klikken
+op de eerste knop krijg de gebruiker de standaard iOS foto scherm voor zich en
+kan hij een foto maken. Door te klikken op de tweede optie krijg de gebruiker de
+mappen voorzich die op zijn telefoon staan en kan hier een foto uit kiezen. Voor
+beide opties geld dat de gebruiker daarna terugkomt de gebruiker terug in het
+scherm om een nieuwe bon te maken en ziet daar zijn foto staan. \\ \hline
+  Alternatief   & Als er bij het maken iets verkeerd gaat, wordt hier een
+melding over gemaakt.. \\ \hline
+MoSCoW & M \\ \hline
+\end{tabularx}
+
+\subsubsection{UC2: Gegevens invoeren en opslaan} % (fold)
+\label{ssub:gegevens_invoeren_en_opslaan}
+\begin{tabularx}{\linewidth}{| g | X |}
+  \hline
+  Naam      & UC1: Gegevens invoeren en opslaan \\ \hline
+  Samenvatting  &  De gebruiker kan de gegevens van de bon als datum,
+garantitijd, naam en gekocht bij invoeren en vervolgens opslaan zodat het
+bewaard blijft. \\ \hline
+  Actoren     & Gebruiker \\ \hline
+  Aannames    & De gebruiker is ingelogd in de applicatie en heeft een nieuwe
+bon die hij in wil voeren. \\ \hline
+  Resultaat     & De gebruiker ziet het gemaakte of gekozen bonnetje staan onder
+de velden van de gegevens die hij kan invoeren of ingevoerd heeft.
+\\ \hline
+  Beschrijving  &  De gebruiker navigeert naar het scherm om een nieuwe bon aan
+te maken en kan hier de gegevens datum, garantietijd, naam en gekocht bij
+invoeren. Op deze zelfde pagina kan de use case
+\nameref{ssub:foto_maken_of_inladen} ingevoerd worden. Wanneer alles is
+ingevoerd kan de gebruiker op de knop opslaan klikken en worden alle gegevens
+opgeslagen in de database van de applicatie en de foto bewaard in een map die
+gespecificeerd is voor de applicatie.\\ \hline
+  Alternatief   & Als er bij het maken iets verkeerd gaat, wordt hier een
+melding over gemaakt.. \\ \hline
+MoSCoW & M \\ \hline
+\end{tabularx}
+
+\subsubsection{UC2: Gegevens invoeren en opslaan} % (fold)
+\label{ssub:gegevens_invoeren_en_opslaan}
+\begin{tabularx}{\linewidth}{| g | X |}
+  \hline
+  Naam      & UC1: Gegevens invoeren en opslaan \\ \hline
+  Samenvatting  &  De gebruiker kan de gegevens van de bon als datum,
+garantitijd, naam en gekocht bij invoeren en vervolgens opslaan zodat het
+bewaard blijft. \\ \hline
+  Actoren     & Gebruiker \\ \hline
+  Aannames    & De gebruiker is ingelogd in de applicatie en heeft een nieuwe
+bon die hij in wil voeren. \\ \hline
+  Resultaat     & De gebruiker ziet het gemaakte of gekozen bonnetje staan onder
+de velden van de gegevens die hij kan invoeren of ingevoerd heeft.
+\\ \hline
+  Beschrijving  &  De gebruiker navigeert naar het scherm om een nieuwe bon aan
+te maken en kan hier de gegevens datum, garantietijd, naam en gekocht bij
+invoeren. Op deze zelfde pagina kan de use case
+\nameref{ssub:foto_maken_of_inladen} ingevoerd worden. Wanneer alles is
+ingevoerd kan de gebruiker op de knop opslaan klikken en worden alle gegevens
+opgeslagen in de database van de applicatie en de foto bewaard in een map die
+gespecificeerd is voor de applicatie.\\ \hline
+  Alternatief   & Als er bij het maken iets verkeerd gaat, wordt hier een
+melding over gemaakt.. \\ \hline
+MoSCoW & M \\ \hline
+\end{tabularx}
+
+\section{Infrastructuur}
+\subsection{Database}
+\section{beveiliging}
+\chapter{RESTFul}
+
+
+
 \chapter{Implementatie}
 
 
