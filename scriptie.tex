@@ -239,6 +239,7 @@ Voordat er begonnen kon worden aan het project moest eerst duidelijk zijn op wel
 \chapter{Architectuur}
 
 \section{Architecturele eisen}
+\label{architecturele_eisen}
 Dit onderdeel beschrijft de eisen die aan de software wordt gesteld bij het
 maken van belang zijn binnen de softwarearchitectuur.
 \subsection{Niet-functionele eisen}
@@ -384,8 +385,7 @@ MoSCoW & M \\ \hline
   Aannames    & De gebruiker is ingelogd en heeft \'e\'en of meer categorie\"en
 ingevoerd. \\ \hline
   Resultaat     & De gebruiker ziet alle categorie\"en die hij eens heeft
-aangeaakt.
-\\ \hline
+aangemaakt.  \\ \hline
   Beschrijving  &  Na het inloggen is dit het eerste scherm wat de gebruiker
 ziet met alle categorie\"en.\\ \hline
   Alternatief   & Als er geen categorie\"en zijn wordt er een lege lijst
@@ -399,7 +399,7 @@ MoSCoW & M \\ \hline
   \hline
   Naam      & UC5: Versturen van bonnen naar de server \\ \hline
   Samenvatting  &  Na het opslaan van een bon op de mobiel wordt de bon
-automatisch verstuurd met een POST naar de server. \\ \hhline
+automatisch verstuurd met een POST naar de server. \\ \hline
   Actoren     & Gebruiker \\ \hline
   Aannames    & De gebruiker is ingelogd in de applicatie en heeft een nieuwe
 bon opgeslagen. \\ \hline
@@ -426,8 +426,7 @@ hierna niet weer terug te zien een lijst met bonnen. \\ \hline
   Aannames    & De gebruiker is ingelogd in de applicatie en heeft eerder al een
 bon ingevoerd. \\ \hline
   Resultaat     & Na het verwijderen is de bon zowel van de applicatie als van
-de server verdwenen.
-\\ \hline
+de server verdwenen. \\ \hline
   Beschrijving  &  De gebruiker gaat naar een categorie en ziet hier een lijst
 met bonnen. Hij kiest een bon uit die hij wil verwijderen en houd deze bon een
 seconde ingedrukt. Hierna verschijnt een popup die vraagt of de gebruiker het
@@ -545,18 +544,99 @@ worden de gegevens van die bon vertstuurd naar de mobiel van de gebruiker en
 krijgt de gebruiker een pushnotificatie waar de gebruiker op kan klikken om de
 bon en alle gegevens daar van kan zien.
 \\ \hline
+MoSCoW & C \\ \hline
+\end{tabularx}
+
+\subsubsection{UC12: Syncrhonisatie} % (fold)
+\label{ssub:synchronisatie}
+\begin{tabularx}{15.5cm}{| g | X |}
+  \hline
+  Naam      & UC12: Synchronisatie \\ \hline
+  Samenvatting  & Bonnen kunnen geschynchroniseerd worden met een druk op de
+knop. Er staan dan dezelfde bonnen op de server (website) als op de app. \\ \hline
+  Actoren     & Gebruiker \\ \hline
+  Aannames    & De gebruiker is ingelogd in de applicatie en heeft een bon
+aangemaakt via de website.
+\\ \hline
+  Resultaat     & Na het synchroniseren staan dezelfde bonnen op de server als
+op de applicatie. \\ \hline
+  Beschrijving  & Bij het klikken op het synchroniseren knop worden alle bonnen
+die op de applicatie staan .
+\\ \hline
 MoSCoW & S \\ \hline
 \end{tabularx}
+
 
 \section{Deployment View}
 \begin{figure}[ht!]
 \centering
-\includegraphics[width=15.5cm]{deployment_view.jpg}\\
+\includegraphics[width=14cm]{deployment_view.png}\\
 \label{deployment_view}
 \caption{Deployment view van ScanjeBon}
 \end{figure}
+
+
 \section{Infrastructuur}
 \subsection{Database}
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=14cm]{erd.jpeg}\\
+\label{erd}
+\caption{De entity-relationship diagram voor ScanjeBon}
+\end{figure}
+
+
+\newpage
+\section{Logical View}
+In dit onderdeel worden de verschillende lagen van het systeem beschreven en
+daarmee de logische opbouw van het systeem. Het beschrijven van deze lagen gaat
+volgens het 4-lagen systeem. Daarnaast zullen een aantal Use Cases uit
+\ref{architecturele_eisen} worden beschreven in de vorm van Sequence Diagrams.
+
+\subsection{Lagen}
+De ScanjeBon applicatie heeft de volgende 4-lagen:
+\begin{itemize}
+  \item Presentatie
+  \item Service
+  \item Domein
+  \item Data
+\end{itemize}
+
+\subsubsection{Presentatie}
+De applicatie heeft twee onderdelen in de presentatie laag. De website en
+de iPhone applicatie gebruiken dezelfde database en presenteren dezelfde data.
+\subsubsection{Service}
+De Service laag zorgt ervoor dat de prestatielagen de gegevens krijgen. Deze
+laag maakt gebruik van een JSON-API voor de iPhone applicatie. Met de JSON-API
+wordt gecommuniceerd door middel van HTTP request met de server.
+\subsubsection{Domein}
+De Business Logic is de verantwoordelijkheid van de de domeinlaag. In deze laag
+zit de represenatie van de gegevens, het uitvoeren van veranderingen op de data,
+het synchroniseren tussen de server en de iPhone applicatie.
+\subsubsection{Data}
+In de Data laag wordt de het opslaan en die integriteit van de gegevens
+gewaarborgd. De gegevens worden opgevraagd en gebruikt door het Domein. Voor de
+opslag van de gegevens wordt een database gebruikt en de foto's worden als
+bestand opgeslagen in een mappenstructuur.
+
+\newpage
+\section{Deelsystemen}
+De applicatie kent de webapplicatie en de iPhone applicatie. In
+Figuur \ref{fig:vier_lagen_model} staat de samenhang tussen de deelsystemen en
+het 4-lagenmodel.
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=10cm]{4_lagen_model.png}\\
+\caption{Deelsystemen in het 4-lagenmodel}
+\label{fig:vier_lagen_model}
+\end{figure}
+
+
+
+
+
+
 \section{beveiliging}
 \chapter{RESTFul}
 
