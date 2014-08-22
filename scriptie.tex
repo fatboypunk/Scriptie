@@ -620,11 +620,103 @@ gewaarborgd. De gegevens worden opgevraagd en gebruikt door het Domein. Voor de
 opslag van de gegevens wordt een database gebruikt en de foto's worden als
 bestand opgeslagen in een mappenstructuur.
 
+% bon aanmaken
+\begin{figure}[ht!]
+\centering
+\begin{sequencediagram}
+\newthread[white]{g}{Gebruiker}
+\newinst[3]{i}{iPhone applicatie}
+\newinst[3]{s}{Server}
+
+\begin{call}
+  {g}{Foto maken}
+  {i}{Toon de gemaakte foto}
+  {i}{Bon informatie}
+  \begin{call}
+    {i}{POST /bon}
+    {s}{bon (JSON)}
+  \end{call}
+  \begin{call}
+    {i}{POST /bon/:id/foto}
+    {s}{HTTP 204}
+  \end{call}
+\end{call}
+
+\end{sequencediagram}
+\caption{De gebuiker maakt een nieuwe bon aan}
+\label{seq:bon-aanmaken}
+\end{figure}
+
+% sync
+\begin{figure}[ht!]
+\centering
+\begin{sequencediagram}
+\newthread[white]{g}{Gebruiker}
+\newinst[1]{i}{iPhone applicatie}
+\newinst[1]{c}{Core data (db)}
+\newinst[1]{s}{Server}
+\newinst[1]{m}{MySQL (db)}
+
+\begin{call}
+  {g}{Synchroniseren}
+  {i}{Bericht met de status}
+  \begin{call}
+    {i}{notSend()}
+    {c}{}
+  \end{call}
+  \begin{sdblock}{loop}{}
+    \begin{call}
+      {i}{POST /bon/}
+      {s}{HTTP 200, bon (JSON)}
+    \begin{call}
+      {s}{Opslaan bon}
+      {m}{}
+    \end{call}
+    \end{call}
+    \begin{call}
+      {i}{POST /bon/:id/foto}
+      {s}{HTTP 204}
+    \end{call}
+  \end{sdblock}
+  \begin{call}
+    {i}{serverEditAndDelete()}
+    {c}{}
+  \end{call}
+  \begin{call}
+    {i}{POST /sync, bonnen (JSON)}
+    {s}{HTTP 200, bonnen update and delete (JSON)}
+    \begin{call}
+      {s}{compareEdit()}
+      {m}{}
+    \end{call}
+    \begin{call}
+      {s}{compareDelete()}
+      {m}{}
+    \end{call}
+  \end{call}
+  \begin{call}
+    {i}{updateLocal()}
+    {c}{}
+  \end{call}
+  \begin{call}
+    {i}{deleteLocal()}
+    {c}{}
+  \end{call}
+\end{call}
+
+
+\end{sequencediagram}
+\caption{De gebruiker synchroniseert de bonnen}
+\label{seq:synchroniseren}
+\end{figure}
+
 \newpage
+
 \section{Deelsystemen}
 De applicatie kent de webapplicatie en de iPhone applicatie. In
 Figuur \ref{fig:vier_lagen_model} staat de samenhang tussen de deelsystemen en
 het 4-lagenmodel.
+
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=10cm]{4_lagen_model.png}\\
