@@ -10,7 +10,10 @@
 \usepackage[font={small,it}]{caption}
 \usepackage{tocloft}
 %\usepackage[options]{natbib}
-\usepackage[numbers]{natbib} 
+\usepackage[numbers]{natbib}
+
+\usepackage[table,usenames,dvipsnames]{xcolor}
+\usepackage{tabularx}
 
 \usepackage{hyperref}
 \hypersetup{
@@ -36,13 +39,12 @@
 
 \linespread{1.2} % Line spacing
 
-
+\usepackage{array,ragged2e,pst-node,pst-dbicons}
 
 \graphicspath{{./img/}} % Specifies the directory where pictures are stored
 
 
 \usepackage{listings}
-\usepackage[usenames,dvipsnames]{xcolor}
 \usepackage{textcomp}
 
 \definecolor{javared}{rgb}{0.6,0,0} % for strings
@@ -52,7 +54,8 @@
 \definecolor{lbcolor}{rgb}{0.9,0.9,0.9} % javadoc
 \definecolor{darkblue}{rgb}{0.0,0.0,0.6}
 \definecolor{cyan}{rgb}{0.0,0.6,0.6}
- 
+\definecolor{Grey}{gray}{0.8}
+
 \lstset{
 	language=Java,
 	basicstyle=\scriptsize,
@@ -87,6 +90,8 @@
 \newlength\titleindent
 \setlength\titleindent{2cm}
 
+\newcolumntype{g}{>{\columncolor{Grey}}c}
+
 \pretocmd{\paragraph}{\stepcounter{subsection}}{}{}
 \pretocmd{\subparagraph}{\stepcounter{subsubsection}}{}{}
 
@@ -116,3 +121,16 @@
 \setcounter{tocdepth}{1}
 \cftsetindents{chapter}{0in}{0.5in}
 \cftsetindents{section}{0in}{0.5in}
+
+\newcolumntype{C}[1]{>{\Centering}p{#1}}
+\def\Tab#1{\tabular{C{3cm}}\rule[-5mm]{0pt}{1cm}#1\\\hline
+                           ~\\\hline~\endtabular}
+\seticonparams{entity}{shadow,fillcolor=black!20,fillstyle=solid,framesep=0pt}
+
+% Diagrams!
+\usepackage{tikz}
+\usetikzlibrary{arrows,shadows}
+\usepackage{pgf-umlsd}
+
+
+

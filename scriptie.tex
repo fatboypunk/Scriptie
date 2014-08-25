@@ -236,6 +236,513 @@ Voordat er begonnen kon worden aan het project moest eerst duidelijk zijn op wel
 
 \section{Frameworks}
 
+\chapter{Architectuur}
+In dit hoofdstuk wordt de Software Architectuur van de applicatie uitgelegd aan de hand
+van meerdere RUP-views volgens het 4+1 View model. Door het gebruik van het 4+1
+model is voor een iedere belanghebbende uit eigen perspectief te bepalen wat de
+invloed van de architectuur is.
+
+\section{Architecturele eisen}
+\label{architecturele_eisen}
+Dit onderdeel beschrijft de eisen die aan de software wordt gesteld bij het
+maken van belang zijn binnen de softwarearchitectuur.
+\subsection{Niet-functionele eisen}
+Deze niet-functionele requirements zijn van belang voor de architectuur van het te bouwen
+software.
+
+\begin{table}[h]
+\begin{tabular}{| l | p{10cm} |}
+\hline
+\rowcolor{lightgray}
+Naam                       & Architecturele relevatie \\
+\hline
+Doorlooptijd               & De applicatie wordt ontwikkeld tijdens de stage
+                             periode van de stagair, wat 20 weken bedraagt. \\
+                             \hline
+Beveiliging van verbinding & Voor het versturen van gegevens en het registreren
+                             en inloggen, is het van belang dat de verbinding
+                             waarover dit verstuurd wordt beveiligd is. \\
+                             \hline
+\end{tabular}
+\end{table}
+
+\subsection{Use Case View (functionele requirements)}
+Voor de architectuur zijn de volgende functionele requirements van belang.
+
+\begin{table}[h]
+\begin{tabular}{| l | p{8cm} | l |}
+\hline
+\rowcolor{lightgray}
+Naam & Architecturele relevatie  & Geaddreseerd in \\ \hline
+Foto maken of laden & De applicatie moet een ruimte hebben waar het foto's kan
+opslaan. tevens moet het de mogelijkheid hebben om de camera en de eerder
+gemaakte foto's te benaderen & \nameref{ssub:foto_maken_of_inladen}  \\ \hline
+Gegevens opslaan op de server & Er moet een database draaien op de server, waar
+de API toegang toe heeft. & \nameref{ssub:gegevens_invoeren_en_opslaan}  \\ \hline
+Gegevens versturen naar de server & Er moet een beveiligde verbinding zijn van
+de applicatie naar de server. & \nameref{ssub:versturen_van_bonnen}  \\ \hline
+Opslaan van foto's op de server & Er moet ruimte zijn voor foto's van alle
+gebruikers en alle bonnen die zij aanmaken. & \nameref{ssub:versturen_van_bonnen}  \\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection{UC1: Foto maken of inladen} % (fold)
+\label{ssub:foto_maken_of_inladen}
+\begin{tabularx}{15.5cm}{| g | X |}
+  \hline
+  Naam      & UC1: Foto maken of inladen \\ \hline
+  Samenvatting  & De gebruiker is in het bezit van een nog niet opgeslagen bon
+en maakt hier een foto van of heeft deze foto al op zijn telefoon staan en haalt
+hem daar op. \\ \hline
+  Actoren     & Gebruiker \\ \hline
+  Aannames    & De gebruiker is ingelogd in de applicatie en heeft een nieuwe
+bon die hij in wil voeren. \\ \hline
+  Resultaat     & De gebruiker ziet het gemaakte of gekozen bonnetje staan onder
+de velden van de gegevens die hij kan invoeren of ingevoerd heeft.  \\ \hline
+  Beschrijving  & De gebruiker navigeert naar het scherm om een nieuwe bon te
+maken, heeft hij twee opties: Maak foto en Kies bestaande foto. Bij het klikken
+op de eerste knop krijg de gebruiker de standaard iOS foto scherm voor zich en
+kan hij een foto maken. Door te klikken op de tweede optie krijg de gebruiker de
+mappen voorzich die op zijn telefoon staan en kan hier een foto uit kiezen. Voor
+beide opties geld dat de gebruiker daarna terugkomt de gebruiker terug in het
+scherm om een nieuwe bon te maken en ziet daar zijn foto staan. \\ \hline
+  Alternatief   & Als er bij het maken iets verkeerd gaat, wordt hier een
+melding over gemaakt. \\ \hline
+MoSCoW & M \\ \hline
+\end{tabularx}
+
+\subsubsection{UC2: Gegevens invoeren en opslaan} % (fold)
+\label{ssub:gegevens_invoeren_en_opslaan}
+\begin{tabularx}{15.5cm}{| g | X |}
+  \hline
+  Naam      & UC2: Gegevens invoeren en opslaan \\ \hline
+  Samenvatting  &  De gebruiker kan de gegevens van de bon als datum,
+garantitijd, naam en gekocht bij invoeren en vervolgens opslaan zodat het
+bewaard blijft. \\ \hline
+  Actoren     & Gebruiker \\ \hline
+  Aannames    & De gebruiker is ingelogd in de applicatie en heeft een nieuwe
+bon die hij in wil voeren. \\ \hline
+  Resultaat     & De gebruiker ziet het gemaakte of gekozen bonnetje staan onder
+de velden van de gegevens die hij kan invoeren of ingevoerd heeft.
+\\ \hline
+  Beschrijving  &  De gebruiker navigeert naar het scherm om een nieuwe bon aan
+te maken en kan hier de gegevens datum, garantietijd, naam en gekocht bij
+invoeren. Op deze zelfde pagina kan de use case
+\nameref{ssub:foto_maken_of_inladen} ingevoerd worden. Wanneer alles is
+ingevoerd kan de gebruiker op de knop opslaan klikken en worden alle gegevens
+opgeslagen in de database van de applicatie en de foto bewaard in een map die
+gespecificeerd is voor de applicatie.\\ \hline
+  Alternatief   & Als er bij het maken iets verkeerd gaat, wordt hier een
+melding over gemaakt. \\ \hline
+MoSCoW & M \\ \hline
+\end{tabularx}
+
+\subsubsection{UC3: Overzicht van alle bonnen weergeven} % (fold)
+\label{ssub:overzicht_bonnen}
+\begin{tabularx}{15.5cm}{| g | X |}
+  \hline
+  Naam      & UC3: Overzicht van alle bonnen weergeven \\ \hline
+  Samenvatting  &  Alle bonnen worden in een lijst weergegeven aan de hand van
+een categorie, zodat snel te zien is welke bonnen er in die categorie al zijn.
+\\ \hline
+  Actoren     & Gebruiker \\ \hline
+  Aannames    & De gebruiker is ingelogd in de applicatie en heeft meerder
+bonnen opgeslagen. \\ \hline
+  Resultaat     & Alle bonnen worden in een lijst getoond.
+\\ \hline
+  Beschrijving  &  De gebruiker is ingelogd en selecteert een categorie in die
+categorie ziet de gebruiker vervolgens een lijst met alle bonnetjes die bij die
+categorie horen. \\ \hline
+  Alternatief   & Als er geen bonnetjes zijn ziet hij een lege lijst. \\ \hline
+MoSCoW & M \\ \hline
+\end{tabularx}
+
+\subsubsection{UC4: Invoeren van nieuwe categorie\"en} % (fold)
+\label{ssub:invoeren_categorieen}
+\begin{tabularx}{15.5cm}{| g | X |}
+  \hline
+  Naam      & UC4: Invoeren van nieuwe categorie\"en \\ \hline
+  Samenvatting  & De gebruiker kan een nieuwe categorie aanmaken waarmee hij de
+bonnen overzichtelijk van elkaar kan scheiden.  \\ \hline
+  Actoren     & Gebruiker \\ \hline
+  Aannames    & De gebruiker is ingelogd op de applicatie. \\ \hline
+  Resultaat     & Er komt een nieuwe categorie bij in de lijst met categorie\"en
+en er is de mogelijkheid bijgekomen om daar bonnen aan toe te voegen.
+\\ \hline
+  Beschrijving  &  De gebruiker is op het scherm met alle categorie\"en en klikt
+op de knop om een nieuwe categorie aan te maken. Vervolgens komt er een
+invoerscherm waar de gebruiker de naam van de categorie in kan zetten. Zodra de
+gebruiker op opslaan klikt wordt de categorie opgeslagen en ziet de gebruiker
+deze categorie in de lijst met categorie\"en.\\ \hline
+  Alternatief   & Als er iets bij het aanmaken verkeerd gaat wordt daar een
+melding over gegeven. \\ \hline
+MoSCoW & M \\ \hline
+\end{tabularx}
+
+\subsubsection{UC4: Overzicht van alle categorie\"en weergeven} % (fold)
+\label{ssub:overzicht_categorieen}
+\begin{tabularx}{15.5cm}{| g | X |}
+  \hline
+  Naam      & UC4: Overzicht van alle categorie\"en weergeven \\ \hline
+  Samenvatting  &  De gebruiker ziet een alle categorie\"en in een lijst \\ \hline
+  Actoren     & Gebruiker \\ \hline
+  Aannames    & De gebruiker is ingelogd en heeft \'e\'en of meer categorie\"en
+ingevoerd. \\ \hline
+  Resultaat     & De gebruiker ziet alle categorie\"en die hij eens heeft
+aangemaakt.  \\ \hline
+  Beschrijving  &  Na het inloggen is dit het eerste scherm wat de gebruiker
+ziet met alle categorie\"en.\\ \hline
+  Alternatief   & Als er geen categorie\"en zijn wordt er een lege lijst
+getoond. \\ \hline
+MoSCoW & M \\ \hline
+\end{tabularx}
+
+\subsubsection{UC5: Versturen van bonnen naar de server} % (fold)
+\label{ssub:versturen_van_bonnen}
+\begin{tabularx}{15.5cm}{| g | X |}
+  \hline
+  Naam      & UC5: Versturen van bonnen naar de server \\ \hline
+  Samenvatting  &  Na het opslaan van een bon op de mobiel wordt de bon
+automatisch verstuurd met een POST naar de server. \\ \hline
+  Actoren     & Gebruiker \\ \hline
+  Aannames    & De gebruiker is ingelogd in de applicatie en heeft een nieuwe
+bon opgeslagen. \\ \hline
+  Resultaat     & De bon is zowel op de telefoon als op de server opgeslagen
+worden en kan benaderd worden via de applicatie en website.
+\\ \hline
+  Beschrijving  &  Wanneer de gebruiker de bon opslaat in
+\nameref{ssub:gegevens_invoeren_en_opslaan} worden de gegevens van de bon
+automatisch opgeslagen met een POST. Wanneer dat gelukt is wordt de foto van
+\nameref{ssub:foto_maken_of_inladen} verstuurd naar de server. \\ \hline
+  Alternatief   & Als er bij het maken iets verkeerd gaat, wordt hier een
+melding over gemaakt. \\ \hline
+MoSCoW & M \\ \hline
+\end{tabularx}
+
+\subsubsection{UC6: Bonnen verwijderen} % (fold)
+\label{ssub:bonnen_verwijderen}
+\begin{tabularx}{15.5cm}{| g | X |}
+  \hline
+  Naam      & UC6: Bonnen verwijderen \\ \hline
+  Samenvatting  & De bon wordt verwijderd van de applicatie en server en is
+hierna niet weer terug te zien een lijst met bonnen. \\ \hline
+  Actoren     & Gebruiker \\ \hline
+  Aannames    & De gebruiker is ingelogd in de applicatie en heeft eerder al een
+bon ingevoerd. \\ \hline
+  Resultaat     & Na het verwijderen is de bon zowel van de applicatie als van
+de server verdwenen. \\ \hline
+  Beschrijving  &  De gebruiker gaat naar een categorie en ziet hier een lijst
+met bonnen. Hij kiest een bon uit die hij wil verwijderen en houd deze bon een
+seconde ingedrukt. Hierna verschijnt een popup die vraagt of de gebruiker het
+echt wil verwijderen. Zodra de gebruiker op ja drukt is de bon verwijderd.\\ \hline
+  Alternatief   & Als er bij het maken iets verkeerd gaat, wordt hier een
+melding over gemaakt. Drukt de gebruiker op nee gebeurd er verder niks en blijft
+de gebruiker alle bonnen in de categorie zien. \\ \hline
+MoSCoW & S \\ \hline
+\end{tabularx}
+
+\subsubsection{UC7: Bonnen aanpassen} % (fold)
+\label{ssub:bonnen_aanpassen}
+\begin{tabularx}{15.5cm}{| g | X |}
+  \hline
+  Naam      & UC7: Bonnen aanpassen \\ \hline
+  Samenvatting  &  De gebruiker kan de gegevens van de bon aanpassen en een
+nieuwe foto selecteren die vervolgens worden op geslagen bij de bon. \\ \hline
+  Actoren     & Gebruiker \\ \hline
+  Aannames    & De gebruiker is ingelogd in de applicatie en heeft eerder al een
+bon aangemaakt. \\ \hline
+  Resultaat     & De gegevens van de bon zijn aangepast, zowel op in de
+applicatie als op de server.
+\\ \hline
+  Beschrijving  &  De gebruiker gaat naar de bon toe die hij wil aanpassen. Daar
+klikt de gebruiker op de + in het rechterbovenhoek. Hier heeft de gebruiker een
+dezelfde mogelijkheden als in \nameref{ssub:gegevens_invoeren_en_opslaan} en
+\nameref{ssub:foto_maken_of_inladen}. Hierna kan op opslaan geklikt worden en
+zijn de gegevens van dezelfde bon zowel op de applicatie als op de server
+gewijzigd. \\ \hline
+  Alternatief   & Als er bij het maken iets verkeerd gaat, wordt hier een
+melding over gemaakt. \\ \hline
+MoSCoW & S \\ \hline
+\end{tabularx}
+
+\subsubsection{UC8: OCR op bonnen uitvoeren} % (fold)
+\label{ssub:ocr_uitvoeren}
+\begin{tabularx}{15.5cm}{| g | X |}
+  \hline
+  Naam      & UC8: OCR op bonnen uitvoeren \\ \hline
+  Samenvatting  &  Na het invoeren van een bon wordt door middel van Optical
+character recognition (OCR) de gegevens van de bon uitgelezen en
+voorgedefinieerd. \\ \hline
+  Actoren     & Gebruiker \\ \hline
+  Aannames    & De gebruiker is ingelogd in de applicatie en heeft een nieuwe
+foto ingevoerd. \\ \hline
+  Resultaat     & Er wordt automatisch een aantal velden ingevoerd op basis van
+de ingescande bon. \\ \hline
+  Beschrijving  &  De gebruiker navigeert naar het scherm om een nieuwe bon aan
+te maken of naar de pagina om een aan te passen. Vervolgens laad de gebruiker
+een nieuwe foto in door middel van \nameref{ssub:foto_maken_of_inladen}. Aan de
+hand van deze foto worden de gegevens ingevuld of aangevuld. Als de gebruiker
+het hier mee eens is klikt hij op opslaan en is de bon opgeslagen.
+\\ \hline
+  Alternatief   & Als er bij het maken iets verkeerd gaat, wordt hier een
+melding over gemaakt. \\ \hline
+MoSCoW & W \\ \hline
+\end{tabularx}
+
+\subsubsection{UC9: Account aanmaken} % (fold)
+\label{ssub:account_aanmaken}
+\begin{tabularx}{15.5cm}{| g | X |}
+  \hline
+  Naam      & UC9: Account aanmaken \\ \hline
+  Samenvatting  &  De gebruiker kan zich registeren in de app, waardoor hij een
+account heeft op zowel de applicatie als de server. Hierdoor weet de applicatie
+welke bonnen bij de gebruiker horen. \\ \hline
+  Actoren     & Gebruiker \\ \hline
+  Aannames    & De gebruiker heeft nog geen account en het e-mail adres is nog
+niet gebruikt \\ \hline
+  Resultaat     & Er is een nieuw account aangemaakt waarmee ingelogd kan worden. \\ \hline
+  Beschrijving  & De gebruiker is nog niet ingelogd en navigeert naar
+registreren. Hier vult de gebruiker zijn email adres en wachtwoord in, waarna
+hij geregistreerd is en direct ingelogd is. \\ \hline
+  Alternatief   & Als er bij het maken iets verkeerd gaat, wordt hier een
+melding over gemaakt. De gebruiker is dan niet ingelogd \\ \hline
+MoSCoW & S \\ \hline
+\end{tabularx}
+
+
+\subsubsection{UC10: Inloggen} % (fold)
+\label{ssub:inloggen}
+\begin{tabularx}{15.5cm}{| g | X |}
+  \hline
+  Naam      & UC10: Inloggen \\ \hline
+  Samenvatting  & De gebruiker kan inloggen met zijn account waardoor de
+applicatie weet welke gebruiker het is en welke gegevens de gebruiker mag zien
+\\ \hline
+  Actoren     & Gebruiker \\ \hline
+  Aannames    & De gebruiker heeft een account aangemaakt en is niet ingelogged \\ \hline
+  Resultaat     & De gebruiker is ingelogd en ziet alleen zijn eigen gegevens \\ \hline
+  Beschrijving  &  De gebruiker start de app op en ziet het scherm inloggen.
+Hier vult de gebruiker zijn eerder gekozen emailadres en wachtwoord. Daarna
+klikt de gebruiker op de knop inloggen en ziet zijn categorie\"en  \\ \hline
+  Alternatief   & Als er bij het maken iets verkeerd gaat, wordt hier een
+melding over gemaakt en wordt de gebruiker niet ingelogged. \\ \hline
+MoSCoW & S \\ \hline
+\end{tabularx}
+
+\subsubsection{UC11: Pushnotificaties weergeven} % (fold)
+\label{ssub:pushnotificaties_weergeven}
+\begin{tabularx}{15.5cm}{| g | X |}
+  \hline
+  Naam      & UC11: Pushnotificaties weergeven \\ \hline
+  Samenvatting  & Bij het bereiken van een einttijd van een bon krijgt de
+gebruiker hier een pusnotificatie voor. \\ \hline
+  Actoren     & Gebruiker \\ \hline
+  Aannames    & De gebruiker heeft een account aangemaakt, is een keer
+ingelogd op de applicatie en heeft een bon aangemaakt met een garantie tot tijd.
+\\ \hline
+  Resultaat     & Er wordt een push notificatie getoond aan de gebruiker die
+weergeeft welke bon afloopt. \\ \hline
+  Beschrijving  & Aan de server kant wordt er gekeken naar alle bonnen met een
+garantie tot tijd. Wanneer een van die bonnen binnen de gekozen tijd afloopt
+worden de gegevens van die bon vertstuurd naar de mobiel van de gebruiker en
+krijgt de gebruiker een pushnotificatie waar de gebruiker op kan klikken om de
+bon en alle gegevens daar van kan zien.
+\\ \hline
+MoSCoW & C \\ \hline
+\end{tabularx}
+
+\subsubsection{UC12: Syncrhonisatie} % (fold)
+\label{ssub:synchronisatie}
+\begin{tabularx}{15.5cm}{| g | X |}
+  \hline
+  Naam      & UC12: Synchronisatie \\ \hline
+  Samenvatting  & Bonnen kunnen geschynchroniseerd worden met een druk op de
+knop. Er staan dan dezelfde bonnen op de server (website) als op de app. \\ \hline
+  Actoren     & Gebruiker \\ \hline
+  Aannames    & De gebruiker is ingelogd in de applicatie en heeft een bon
+aangemaakt via de website.
+\\ \hline
+  Resultaat     & Na het synchroniseren staan dezelfde bonnen op de server als
+op de applicatie. \\ \hline
+  Beschrijving  & Bij het klikken op het synchroniseren knop worden alle bonnen
+die op de applicatie staan .
+\\ \hline
+MoSCoW & S \\ \hline
+\end{tabularx}
+
+\newpage
+
+\section{Deployment View}
+\label{deployment_view}
+
+In figuur \ref{fig:deployment_view} staat de deployment view van ScanjeBon.
+Hierin wordt duidelijk gemaakt op welke systemen de applicaties draaien en met
+welke software daarin rekening gehouden wordt.
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=14cm]{deployment_view.png}\\
+\caption{Deployment view van ScanjeBon}
+\label{fig:deployment_view}
+\end{figure}
+
+
+\newpage
+\section{Logical View}
+In dit onderdeel worden de verschillende lagen van het systeem beschreven en
+daarmee de logische opbouw van het systeem. Het beschrijven van deze lagen gaat
+volgens het 4-lagen systeem. Daarnaast zullen een aantal Use Cases uit
+\ref{architecturele_eisen} worden beschreven in de vorm van Sequence Diagrams.
+
+\subsection{Lagen}
+De ScanjeBon applicatie heeft de volgende 4-lagen:
+\begin{itemize}
+  \item Presentatie
+  \item Service
+  \item Domein
+  \item Data
+\end{itemize}
+
+\subsubsection{Presentatie}
+De applicatie heeft twee onderdelen in de presentatie laag. De website en
+de iPhone applicatie gebruiken dezelfde database en presenteren dezelfde data.
+\subsubsection{Service}
+De Service laag zorgt ervoor dat de prestatielagen de gegevens krijgen. Deze
+laag maakt gebruik van een JSON-API voor de iPhone applicatie. Met de JSON-API
+wordt gecommuniceerd door middel van HTTP request met de server.
+\subsubsection{Domein}
+De Business Logic is de verantwoordelijkheid van de de domeinlaag. In deze laag
+zit de represenatie van de gegevens, het uitvoeren van veranderingen op de data,
+het synchroniseren tussen de server en de iPhone applicatie.
+\subsubsection{Data}
+In de Data laag wordt de het opslaan en die integriteit van de gegevens
+gewaarborgd. De gegevens worden opgevraagd en gebruikt door het Domein. Voor de
+opslag van de gegevens wordt een database gebruikt en de foto's worden als
+bestand opgeslagen in een mappenstructuur.
+
+
+% bon aanmaken
+\begin{figure}[ht!]
+\centering
+\begin{sequencediagram}
+\newthread[white]{g}{Gebruiker}
+\newinst[3]{i}{iPhone applicatie}
+\newinst[3]{s}{Server}
+
+\begin{call}
+  {g}{Foto maken}
+  {i}{Toon de gemaakte foto}
+  {i}{Bon informatie}
+  \begin{call}
+    {i}{POST /bon}
+    {s}{bon (JSON)}
+  \end{call}
+  \begin{call}
+    {i}{POST /bon/:id/foto}
+    {s}{HTTP 204}
+  \end{call}
+\end{call}
+
+\end{sequencediagram}
+\caption{De gebuiker maakt een nieuwe bon aan}
+\label{seq:bon-aanmaken}
+\end{figure}
+
+% sync
+\begin{figure}[ht!]
+\centering
+\begin{sequencediagram}
+\newthread[white]{g}{Gebruiker}
+\newinst[1]{i}{iPhone applicatie}
+\newinst[1]{c}{Core data (db)}
+\newinst[1]{s}{Server}
+\newinst[1]{m}{MySQL (db)}
+
+\begin{call}
+  {g}{Synchroniseren}
+  {i}{Bericht met de status}
+  \begin{call}
+    {i}{notSend()}
+    {c}{}
+  \end{call}
+  \begin{sdblock}{loop}{}
+    \begin{call}
+      {i}{POST /bon/}
+      {s}{HTTP 200, bon (JSON)}
+    \begin{call}
+      {s}{Opslaan bon}
+      {m}{}
+    \end{call}
+    \end{call}
+    \begin{call}
+      {i}{POST /bon/:id/foto}
+      {s}{HTTP 204}
+    \end{call}
+  \end{sdblock}
+  \begin{call}
+    {i}{serverEditAndDelete()}
+    {c}{}
+  \end{call}
+  \begin{call}
+    {i}{POST /sync, bonnen (JSON)}
+    {s}{HTTP 200, bonnen update and delete (JSON)}
+    \begin{call}
+      {s}{compareEdit()}
+      {m}{}
+    \end{call}
+    \begin{call}
+      {s}{compareDelete()}
+      {m}{}
+    \end{call}
+  \end{call}
+  \begin{call}
+    {i}{updateLocal()}
+    {c}{}
+  \end{call}
+  \begin{call}
+    {i}{deleteLocal()}
+    {c}{}
+  \end{call}
+\end{call}
+
+
+\end{sequencediagram}
+\caption{De gebruiker synchroniseert de bonnen}
+\label{seq:synchroniseren}
+\end{figure}
+
+\clearpage
+\pagebreak
+
+\section{Deelsystemen}
+De applicatie kent de webapplicatie en de iPhone applicatie. In
+Figuur \ref{fig:vier_lagen_model} staat de samenhang tussen de deelsystemen en
+het 4-lagenmodel.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=10cm]{4_lagen_model.png}\\
+\caption{Deelsystemen in het 4-lagenmodel}
+\label{fig:vier_lagen_model}
+\end{figure}
+
+\section{Infrastructuur}
+\subsection{Database}
+\label{subsec:database}
+In figuur \ref{fig:erd} wordt een entity-relationship diagram getoond. Dit
+diagram komt overeen met de situatie van de server database en geeft de relaties
+tussen tabellen samen met de informatie in de tabbellen weer.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=14cm]{erd.jpeg}\\
+\caption{De entity-relationship diagram voor ScanjeBon}
+\label{fig:erd}
+\end{figure}
+
+\chapter{RESTFul}
+
+
+
 \chapter{Implementatie}
 
 
