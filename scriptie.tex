@@ -566,24 +566,19 @@ die op de applicatie staan .
 MoSCoW & S \\ \hline
 \end{tabularx}
 
+\newpage
 
 \section{Deployment View}
+\label{deployment_view}
+
+In figuur \ref{fig:deployment_view} staat de deployment view van ScanjeBon.
+Hierin wordt duidelijk gemaakt op welke systemen de applicaties draaien en met
+welke software daarin rekening gehouden wordt.
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=14cm]{deployment_view.png}\\
-\label{deployment_view}
 \caption{Deployment view van ScanjeBon}
-\end{figure}
-
-
-\section{Infrastructuur}
-\subsection{Database}
-
-\begin{figure}[ht!]
-\centering
-\includegraphics[width=14cm]{erd.jpeg}\\
-\label{erd}
-\caption{De entity-relationship diagram voor ScanjeBon}
+\label{fig:deployment_view}
 \end{figure}
 
 
@@ -619,6 +614,7 @@ In de Data laag wordt de het opslaan en die integriteit van de gegevens
 gewaarborgd. De gegevens worden opgevraagd en gebruikt door het Domein. Voor de
 opslag van de gegevens wordt een database gebruikt en de foto's worden als
 bestand opgeslagen in een mappenstructuur.
+
 
 % bon aanmaken
 \begin{figure}[ht!]
@@ -710,7 +706,8 @@ bestand opgeslagen in een mappenstructuur.
 \label{seq:synchroniseren}
 \end{figure}
 
-\newpage
+\clearpage
+\pagebreak
 
 \section{Deelsystemen}
 De applicatie kent de webapplicatie en de iPhone applicatie. In
@@ -724,12 +721,20 @@ het 4-lagenmodel.
 \label{fig:vier_lagen_model}
 \end{figure}
 
+\section{Infrastructuur}
+\subsection{Database}
+\label{subsec:database}
+In figuur \ref{fig:erd} wordt een entity-relationship diagram getoond. Dit
+diagram komt overeen met de situatie van de server database en geeft de relaties
+tussen tabellen samen met de informatie in de tabbellen weer.
 
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=14cm]{erd.jpeg}\\
+\caption{De entity-relationship diagram voor ScanjeBon}
+\label{fig:erd}
+\end{figure}
 
-
-
-
-\section{beveiliging}
 \chapter{RESTFul}
 
 
