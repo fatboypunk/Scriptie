@@ -235,6 +235,120 @@ Voordat er begonnen kon worden aan het project moest eerst duidelijk zijn op wel
 \section{Communicatie}
 
 \section{Frameworks}
+Het gebruik van een framework voor de server kant maakt het werk gemakkelijker
+omdat in het framework al aan meerdere dingen is gedacht. Er zit een standaard
+authenticatie in, het framework kan al overweg met aanvragen en berichtgeving en
+het heeft al een structuur waar de code in gezet wordt. Het ontwikkelen met
+behulp van een Framework wordt een stuk gemakkelijker dan zonder. Doordat er
+voor veel onderdelen al standaarden zijn geimplementeerd die daardoor niet meer
+zelf gemaakt hoeven te worden.
+
+Doordat het framework ook al een structuur neerzet over het verdelen van de
+code. Is het voor iedere ontwikkelaar gemakkelijk te vinden waar aanpassingen
+gedaan moeten worden. Wanneer een andere ontwikkelaar niet weet waar een bepaald
+stuk aangepast moet worden kan dit gemakkelijk opgezocht worden in de
+documentatie van het framework.
+
+Vanuit Nidaros kwam de vraag of er aan de server kant PHP gebruikt kon worden,
+omdat er binnen nidaros alleen hier ervaring mee was. Als er problemen waren aan
+de server kant konden de mensen die bij Nidaros werken de code begrijpen en
+daaraan werken. Daarbij kwam ook de vraag of bij het gebruik van een framework
+er een klein framework gebruikt kon worden, zodat er niet teveel geleerd hoefde
+te worden van het framework zelf en dat de werking duidelijk was te zien aan de
+code die zelf geschreven is.
+
+Met de eisen die gesteld zijn vallen er veel frameworks af. Alle frameworks in
+andere talen zoals Rails (Ruby), Play!(Java) en Django(Python) vielen af, omdat
+daarmee niet in PHP geschreven wordt. Daarnaast vallen frameworks af die wel met
+PHP werken, omdat deze frameworks veel groter en ingewikkelder zijn dan nodig
+is. Voorbeelden hiervan zijn Zend, CodeIgniter en Yii. De frameworks die
+overblijven zijn Slim, Laravel en Recess.
+\newline
+
+Het Slim framework is een erg minimalistisch framework. Het is gemakkelijk om
+mee te beginnen, omdat er weinig nodig is om het eerste resultaat te boeken. Het
+aanmaken van REST endpoints is erg simpel om te doen, waardoor er snel een punt
+is om de requests binnen te laten komen. De documentatie hiervan is goed en
+uitgebreid. Er wordt per request uitgelegd wat er gedaan moet worden en hoe hoe
+de response verstuurd moet worden.
+
+Slim heeft geen ORM voor de database. Het handige van een goede ORM is dat het
+maken van queries al gedaan is en om die queries te kunnen gebruiken moet
+daarvoor alleen de functies aangeroepen worden binnen het framework. Deze
+functies zijn generiek opgezet waardoor er bij het aanmaken van nieuwe velden en
+of tabllen er nauwlijks iets veranderd hoeft te worden. Bij het Slim framework
+is dit niet het geval en blijft het handwerk om de gegevens uit de database te
+halen. Een andere tegenvaller van Slim is dat de structuur van de applicatie
+zelf uitgedacht moet worden. Waar dit een nieuw framework is waar nog in geleerd
+moet worden hoe het werken ermee het handigste is, kost het extra veel moeite om
+direct de structuur goed te hebben of later nog eens aan te passen.
+\newline
+
+Recess is een wat groter framework dan Slim. Bij het aanmaken van een nieuw
+project in Recess wordt er direct een structuur neer gezet en is het de
+bedoeling dat er vanaf dan verder gewerkt wordt in de browser zelf. Dit voelt
+heel onwennig aan en creeert een afstand naar de code toe. Het aanmaken van
+models volgens het MVC structuur wordt gedaan vanuit de browser. Op basis van de
+models worden ook de database tabellen aangemaakt met de kollommen die zijn
+opgegeven.
+
+Recess heeft een pagina met documentatie, maar daar zijn alleen maar
+verwijzingen naar tutorials die recess geschreven heeft. Het is daardoor niet
+gemakkelijk om te vinden hoe de API van Recess werkt. Ontwikkelen op basis van
+de tutorials kan alleen maar wanneer de applicatie die gemaakt moet worden bijna
+een kopie is er er maar kleine stukken aangepast hoeven te worden, maar zodra er
+ingewikkelde dingen bij komen of verandert moet worden is dit een stuk lastiger.
+Recess gebruikt een ORM en maakt het daardoor gemakkelijk om data op te slaan
+met de modellen die al in het framework gemaakt zijn.
+
+Het is een opensource framework en iedereen kan bijdragen leveren, maar toch is
+de laatste wijziging aan het framework gedaan in 2011. Het framework is ook niet
+heel populair er zijn maar weinig vragen over het framework en nog minder
+antwoorden. Daarbij komt dat de documentatie van de API binnen het framework
+ontbreekt en zorgt alles er samen voor dat er bij problemen die een ontwikkelaar
+op loopt bij het gebruiken van het framework met eventuele bugs die er nog
+inzitten. Er zelf een oplossing gezocht moet worden en zelfs dat er nog
+aanpassingen gedaan moeten worden aan het framework om deze bugs op te lossen.
+\newline
+
+Laravel is een relatief nieuw framework wat erg in populariteit begint te
+winnen. Dit framework is gebasseerd op onder anderen Ruby on Rails, ASP.NET MVC
+en Sinatra. Dit maakt de overstap op Laravel erg gemakkelijk voor ontwikkelaars
+die bekend waren met een van die frameworks. Dat het op andere frameworks
+gebasseerd is en geprobeerd heeft het beste van meerdere frameworks te
+combineren zorgt er voor dat er een goede basis ligt en direct duidelijk is hoe
+het framework er uit moet zien.
+
+
+Er is goede documentatie op de website van Laravel te vinden. Er staat precies
+uitgelegd hoe de API werkt en hoe dit gebruikt kan worden in de eigen
+applicaties. Er is een goede en duidelijke code structuur volgens het MVC
+princiepe en dat maakt het snel duidelijk waar stukken code gezocht en gewijzigd
+kunnen worden. Laravel heeft veel dingen out of the box klaar staan zoals een
+goede ORM, authenticatie, duidelijke routing, caching en versturen van mail.
+
+Models kunnen gegeneerd worden, net als de controllers en zelfs de views. Het
+genereren van de code zorgt er voor dat er een database tabel bij komt met het
+model wat daar in opgeslagen moet worden. De controller krijgt standaard acties
+volgens het REST principe om dit model te kunnen opslaan, verwijderen, aanpassen
+of ophalen. En de views die gegeneeerd worden laten een standaard pagina zien
+waar deze acties mee gebruikt worden.
+
+Laravel is een populair framework en dat zorgt er voor dat er veel vragen online
+beantwoord wordt. De ontwikkeling van het framework blijft door een stevige
+community door gaan. Elke maand worden er wijzigingen gemaakt, verbeteringen
+gedaan en bugs opgelost. Wanneer er tegen problemen aangelopen wordt binnen het
+framework kan de ontwikkelaar snel ergens terecht om zijn vraag beantwoord te
+krijgen of om bugs waar hij tegenaanloopt op te laten lossen.
+
+Het Laravel framework voelt niet als een gigantisch iets aan maar heeft veel in
+zich om snel resultaat te kunnen zien. Het is klein genoeg om aan de wensen van
+Nidaros te voldoen, maar groot genoeg om het werk te versnellen en te
+verbeteren. Het Slim en Recess komen beide wat te kort op het gebied van
+documentatie. Slim is wat te minimalistisch om lang profeit van te kunnen hebben
+en aan het Recess framework zitten te veel haken en ogen met te weinig
+ondersteuning. Hierdoor is de keuze op Laravel gevallen.
+
 
 \chapter{Implementatie}
 
