@@ -227,10 +227,136 @@ Stash - github - bitbucket - gitlab - github enteprise
 \chapter{Ontwerp keuzes}
 
 \section{Besturingsysteem}
-Voordat er begonnen kon worden aan het project moest eerst duidelijk zijn op welk platform de applicatie zou draaien. Door de grote overmacht van Android en iOS op het gebied van besturingssystemen voor de smartphone is er in het onderzoek voornamelijk hierop de nadruk gelegd. Hieronder zal uitgelegd worden waarom er voor een iOS applicatie is gekozen en wat de voor en nadelen van beide besturingssystemen zijn
+Voordat er begonnen kon worden aan het project moest eerst duidelijk zijn op
+welk platform de applicatie zou draaien. Door de grote overmacht van Android en
+iOS op het gebied van besturingssystemen voor de smartphone is er in het
+onderzoek voornamelijk hierop de nadruk gelegd. Hieronder zal uitgelegd worden
+waarom er voor een iOS applicatie is gekozen en wat de voor en nadelen van beide
+besturingssystemen zijn.
+
+\subsection{Native of multiplatform}
+Naast alleen een applicatie op Android of op iOS is het ook mogelijk om in een
+keer een applicatie te maken die op beide en zelfs op meerder systemen kan
+werken. Hier zijn een aantal frameworks voor die dit mogelijk maken zoals
+Titanium, Xamarin of Phonegap.
+
+Alle drie claimen ze dat er door maar een taal te gebruiken een applicatie
+gebowd kan worden die op alle grote mobiele platformen gedraaid kan worden. Bij
+Xamarin claimen ze dat door de applicatie te compileren de code net zo snel gaat
+als wanneer het native gebouwd zou worden. Bij Titanium doen ze hier nog een
+schepje bovenop en zeggen ze dat de code sneller uitgevoerd wordt dan bij een
+native app.
+
+\label{phonegap} Phonegap is een heel ander verhaal. Ze claimen niet dat het
+sneller of net zo snel gaat als een native app. Dit komt doordat ze applicaties
+laten maken door middel van HTML5, CSS3 en JavaScript. JavaScript is de grote
+boosdoener voor de snelheid op mobiele applicaties. Dit komt door de hardware
+die gebruikt wordt op telefoons en de garbage collector van JavaScript.
+
+Door het gebruik van HTML5 en CSS3 in Phonegap heeft de app niet de style die
+een native app zal hebben, waar de terug knop of de menu knop van android zit
+ten opzichte van iOS is een heel verschil en bij Phonegap wordt ook dat in een
+keer gebouwd. Dit is wel aan te passen voor beide, maar dan zijn er toch weer
+twee verschillende projecten waar aan gewerkt wordt.
+
+Met de snelheid van JavaScript op mobiele apparaten blijft naast de uitstraling
+op de app ook het gevoel achter. Bij het wisselen tussen pagina's in de app zelf
+merkt de gebruiker dat het net allemaal even langzamer gaat en bij het drukken
+op een knop is er niet het gevoel dat er direct wat gebeurd. Voor een app is dit
+funest voor de gebruikerservaring, zeker wanneer de gebruiker het gevoel heeft
+dat er alleen maar simpele dingen gebeuren in de app. Het is ook niet voor niks
+dat grote bedrijven die erg willen inzetten op een mobiele app, zoals facebook,
+misschien wel zijn begonnen aan JavaScript, maar er toch vanaf zijn gestapt.
+
+Xamarin en Titanium claimen dat ze de uitstraling geven van native apps en net
+zo snel werkt, omdat het gecompileerd is. Daarnaast geven ze aan dat tijdens het
+maken van de app de API van de het platform aangesproken kan worden, daardoor is
+het mogelijk om hetzelfde te kunnen doen wat native apps ook kunnen. In Xamarin
+wordt ontwikkeld met C\# en wordt naar elk platform apart gecompileerd. Terwijl
+bij Titanium JavaScript code gebruikt wordt. Wat titanium met deze code doet
+voordat het als een app op de smartphone terecht komt is niet duidelijk, mocht
+het JavaScript blijven zal er altijd snelheidsverlies blijven zoals ook het
+geval is bij phonegap.
+
+In alle gevallen moeten de ontwikkelaar rekening houden met elk platform waar de
+app op moet komen. Van elk device moet de taal bekend zijn en hoe de look en
+feel van elke app moet zijn. Voor elk platform is zijn hier aparte richtlijnen
+opgesteld die er voor zorgen dat de app intuitief aanvoelen op het
+desbetreffende platform. Hierdoor moeten er met multiplatform frameworks altijd
+n+1 talen en systemen geleerd worden. Waar 'n' voor het aantal platforms staat
+en de '+1' het framework betekend. Door het werken op een ander framework
+betekent het ook dat er nog een onderdeel bij komt waar ook bugs zit. Deze
+frameworks Bedienen ook minder mensen dan de Android SDK of de iOS SDK en bij
+problemen binnen het framework zijn er daarom een stuk minder problemen
+uitgelegd en bij een vraag zijn er minder mensen die daarmee kunnen helpen.
+
+\subsection{Android}
+Android heeft het grootste marktaandeel op het gebied van smartphones.
+Maarliefst 80\% van de mobiele apparaten werkt op Android. Hierdoor kan bij het
+maken van een native app op Android kan erdirect een groot gedeelte van de
+mensen bereikt worden. Wel moet er rekening gehouden worden met de verschillende
+devices. Er zijn veel verschillende soorten devices waar Android het
+besturingsysteem van is en omdat het op het ene aparaat goed werkt betekent nog
+niet dat het op een ander apparaat met Android ook goed zal werken. Op alle
+mobiele apparaten werkt alles net even anders en moet voor veel dingen die
+gebeuren in de app aparte code geschreven worden.
+
+Het werken aan een Android project is relatief goedkoop, er moet 25 euro betaald
+worden bij het inschrijven van een app in de playstore. Het ontwikkelen kan in
+principe op alle computers. Er hoeft dus geen extra hardware aangeschaft te
+worden, tenzij het op een specefiek apparaat getest moet worden. De taal om
+applicaties te schrijven voor Android is Java. Eeen voordeel hiervan is dat veel
+mensen bekend zijn met de taal en veel mensen met weinig moeite en scholing
+kunnen beginnen aan het ontwikkelen van een taal in Java.
+
+
+\subsection{iOS}
+iOS is na Android de grootste speler op de markt, maar heeft slechts 13\% van de
+markt in handen. iOS draait alleen op de apparaten die van Apple zelf zijn
+waardoor er een naadloze integratie is tussen de hardware en software op alle
+apparaten. Hierdoor zijn applicaties die geschreven worden voor het ene apparaat
+ook goed voor het andere apparaat. Er zijn specefieke gevallen waar dit minder
+is, maar met de simulator die Apple biedt is de code te testen voor alle
+apparaten, en kan er veel gedaan worden zonder een echt apparaat in bezit te
+hebben.
+
+Voor het ontwikkelen in iOS is er een Mac systeem nodig waar Xcode op draait.
+Dit maakt de onwtikkeling duurder voor iOS wanneer er nog geen Mac aanwezig is.
+De applicaties worden geschreven in Objective-C een taal die op weinig andere
+plekken wordt gebruikt dan het maken van applicaties voor iOS en OS X. Het
+aantal mensen dat Objective-C kan is aanzienlijk lager dan Java, maar er zijn
+veel mensen die apps voor iOS en OS X maken.
 
 
 \subsection{Keuze}
+Uiteindelijk is de keuze gevallen op iOS. De oplossing van multiplatform leek
+weinig te beloven, zeker wanneer er in de toekomst nog functies bij moesten
+komen als OCR is het niet zeker of dit zou kunnen met Xamarin of Titanium. Bij
+Phonegap zou het al lastig worden om een aantal bonnetjes in het geheugd op te
+slaan door de garbage collector en het geheugen wat per applicatie gebruikt mag
+worden.
+
+Voor deze applicatie moest er een goede look en feel komen waar de gebruikers
+makkelijk in konden stappen en snel hun weg in konden vinden. Dit zou teniet
+worden gedaan door het gebruik van JavaScript maar zelfs met de oplossing van
+Xamarin is het moeilijk om een juiste manier te vinden in waar de knoppen
+terecht komen en hoe de bewegingen zouden moeten gaan.
+
+De keuze voor iOS werd gemaakt, omdat het maken van applicaties heirvoor
+zekerder aanvoelde dan voor Android. Bij Android mag dan wel een grotere markt
+zijn, maar het aantal devices waar dit goed op werkt zou net zo klein of kleiner
+kunnen zijn dan die van iOS. Door de verschillende grotes en hardware specefieke
+oplossingen van alle fabrikanten binnen Android is het lastig om app te maken,
+die goed gebruikt kan worden door alle Android gebruikers.
+
+Voor Nidaros is de ScanjeBon de eerste mobiele applicatie die gebouwd wordt
+binnen het bedrijf. Nidaros kan hiermee zijn portfolio uitbreiden en laten zien
+aan de huidige klanten en toekomstige klanten. De meeste klanten en voornamelijk
+de leidinggevenden daarvan zijn in het bezit van een iPhone of iPad waar iOS op
+draait. Door de applicatie op dit besturingssysteem te bouwen denk Nidaros er
+uiteindelijk meer aan over te houden dan deze app. Ze kunnen de app laten zien
+als iets wat ze kunnen maken en daardoor meer opdrachten binnen halen.
+
 
 \section{Communicatie}
 
